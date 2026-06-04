@@ -56,6 +56,44 @@
     ]));
   }
 
+  function splitParas(s) { return String(s).split(/\n\n+/).map(function (p) { return p.trim(); }).filter(Boolean); }
+
+  /* ---------- Introdução: versos em destaque + síntese + ênfase adventista ---------- */
+  function buildIntro(mount, data) {
+    var hasVerses = data.verses && data.verses.length;
+    if (!hasVerses && !data.intro && !data.adventistEmphasis) return;
+
+    var wrap = el('div', { class: 'container intro-wrap' });
+
+    if (hasVerses) {
+      var ep = el('blockquote', { class: 'epigraph' });
+      data.verses.forEach(function (v) {
+        ep.appendChild(el('p', { class: 'epigraph-text', text: '“' + v.text + '”' }));
+        if (v.ref) ep.appendChild(el('p', { class: 'epigraph-ref', text: '— ' + v.ref }));
+      });
+      wrap.appendChild(ep);
+    }
+
+    if (data.intro) {
+      var body = el('div', { class: 'intro-body' });
+      body.appendChild(el('p', { class: 'intro-eyebrow', text: 'O panorama das interpretações' }));
+      splitParas(data.intro).forEach(function (p) { body.appendChild(el('p', { text: p })); });
+      wrap.appendChild(body);
+    }
+
+    if (data.adventistEmphasis) {
+      var box = el('div', { class: 'adventist-emphasis' });
+      box.appendChild(el('h3', { class: 'ae-title' }, [
+        el('span', { class: 'ae-ico', text: '📅' }),
+        document.createTextNode(' Em destaque: a leitura adventista do sétimo dia')
+      ]));
+      splitParas(data.adventistEmphasis).forEach(function (p) { box.appendChild(el('p', { text: p })); });
+      wrap.appendChild(box);
+    }
+
+    mount.appendChild(wrap);
+  }
+
   function skeletonNotice() {
     return el('div', { class: 'container' }, [
       el('div', { class: 'skeleton-flag', html: '&#9998; <strong>Em pesquisa.</strong> As interpretações deste artigo, com fontes citadas, estão sendo redigidas e serão publicadas em breve.' })
@@ -238,6 +276,7 @@
         var data = APOC.chapters[id];
         if (!ok || !data) { notFound(mount, 'Não foi possível carregar o capítulo ' + id + '.'); return; }
         renderHead(mount, data, 'chapter');
+        buildIntro(mount, data);
         buildExplore(mount, data, 'chapter');
         buildChapterNav(mount, id);
         document.title = data.title + ' — Apocalipse';
@@ -249,6 +288,7 @@
         var data = APOC.themes[s];
         if (!ok || !data) { notFound(mount, 'Não foi possível carregar o tema solicitado.'); return; }
         renderHead(mount, data, 'theme');
+        buildIntro(mount, data);
         buildExplore(mount, data, 'theme');
         mount.appendChild(el('div', { class: 'container' }, [el('div', { class: 'article-nav' }, [
           el('a', { href: 'tematicos.html', html: '&larr; Todos os temáticos' }),

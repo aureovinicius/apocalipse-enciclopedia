@@ -187,6 +187,37 @@ h3 { font-size: 1.3rem; }
 .btn-bordo { background: var(--bordo); border-color: var(--bordo-bright); color: #f3e3d6; }
 .btn-bordo:hover { color: #fff; background: var(--bordo-bright); }
 
+/* Introdução do artigo: epígrafe + síntese + ênfase adventista */
+.intro-wrap { max-width: 820px; margin: 14px auto 0; }
+.epigraph {
+  margin: 0 0 26px; padding: 22px 28px; position: relative;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(200,162,74,.05), transparent);
+  text-align: center;
+}
+.epigraph::before {
+  content: '\201C'; font-family: var(--display); color: var(--gold);
+  font-size: 3.4rem; line-height: 0; position: absolute; top: 24px; left: 14px; opacity: .45;
+}
+.epigraph-text { font-family: var(--display); font-style: italic; font-size: 1.35rem; color: var(--ink); margin: 0 0 8px; line-height: 1.45; }
+.epigraph-text + .epigraph-ref { margin-bottom: 14px; }
+.epigraph-ref { font-family: var(--display); text-transform: uppercase; letter-spacing: .2em; font-size: .8rem; color: var(--gold); margin: 0; }
+
+.intro-body { margin-bottom: 24px; }
+.intro-eyebrow { font-family: var(--display); text-transform: uppercase; letter-spacing: .24em; font-size: .76rem; color: var(--gold); font-weight: 600; margin: 0 0 8px; }
+.intro-body p { color: var(--ink-soft); }
+.intro-body p:first-letter { }
+
+.adventist-emphasis {
+  background: linear-gradient(180deg, rgba(46,107,94,.16), rgba(46,107,94,.06));
+  border: 1px solid #2e6b5e; border-left-width: 4px; border-radius: 10px;
+  padding: 20px 24px; margin: 8px 0 6px; box-shadow: var(--shadow);
+}
+.adventist-emphasis .ae-title { color: #6fc2ad; margin: 0 0 10px; font-size: 1.18rem; display: flex; align-items: center; gap: 4px; }
+.adventist-emphasis .ae-ico { font-size: 1.1rem; }
+.adventist-emphasis p { color: var(--ink-soft); margin: 0 0 10px; }
+.adventist-emphasis p:last-child { margin-bottom: 0; }
+
 /* Abas das três formas de explorar */
 .explore-tabs { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin: 30px 0 8px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
 .explore-tab { font-family: var(--display); padding: 9px 18px; border-radius: 8px 8px 0 0; cursor: pointer; color: var(--ink-soft); border: 1px solid transparent; background: none; font-size: 1rem; }

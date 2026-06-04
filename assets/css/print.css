@@ -42,6 +42,16 @@
   .interp-body .first-letter::first-letter { color: #7b2230 !important; }
   .sources li, .sources a { color: #444 !important; }
 
+  .intro-wrap { max-width: 100%; }
+  .epigraph, .adventist-emphasis { page-break-inside: avoid; }
+  .epigraph { border-top: 1px solid #c8a24a; border-bottom: 1px solid #c8a24a; background: transparent !important; }
+  .epigraph-text { color: #1a1a1a !important; }
+  .epigraph-ref { color: #7b2230 !important; }
+  .intro-eyebrow { color: #7b2230 !important; }
+  .adventist-emphasis { background: #eef3f1 !important; border: 1px solid #2e6b5e !important; border-left: 4px solid #2e6b5e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .adventist-emphasis .ae-title { color: #1f4d43 !important; }
+  .adventist-emphasis p { color: #222 !important; }
+
   table.compare { font-size: 9.5pt; }
   table.compare thead th { background: #f0e8d8 !important; color: #7b2230 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .table-wrap { border: 1px solid #bbb; box-shadow: none; overflow: visible; }
