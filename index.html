@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apocalipse — Enciclopédia das interpretações</title>
+  <meta name="description" content="Enciclopédia comparada das interpretações teológicas do livro do Apocalipse, capítulo a capítulo, em mais de quinze tradições.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/print.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-orn">&#10070; &nbsp; &#10070; &nbsp; &#10070;</p>
+        <p class="eyebrow">Enciclopédia das interpretações</p>
+        <h1 class="title-xl">Apocalipse</h1>
+        <p class="subtitle">As visões de João lidas por mais de quinze tradições — capítulo a capítulo.</p>
+
+        <form class="searchbox" id="home-search" role="search" aria-label="Buscar no site">
+          <input type="search" id="home-q" name="q" placeholder="Buscar capítulos, temas ou tradições…" aria-label="Buscar">
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+    </section>
+
+    <p class="rule-orn">&#10070; &#8212; &#10070; &#8212; &#10070;</p>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Como explorar</p>
+          <h2>Dois caminhos de estudo</h2>
+          <p>Percorra o livro pelos seus vinte e dois capítulos ou siga os grandes temas que atravessam o Apocalipse.</p>
+        </div>
+        <div class="card-grid">
+          <a class="card" href="capitulos.html" style="text-decoration:none">
+            <h3><span class="card-ico">📖</span> Os 22 Capítulos &rarr;</h3>
+            <p>Cada capítulo é um artigo que reúne, lado a lado, as interpretações católica, ortodoxa, protestante, adventista, pentecostal, espírita e muitas outras — com fontes citadas.</p>
+            <div class="tags"><span class="tag-chip">cards por tradição</span><span class="tag-chip">tabela comparativa</span><span class="tag-chip">gráfico de radar</span></div>
+          </a>
+          <a class="card" href="tematicos.html" style="text-decoration:none">
+            <h3><span class="card-ico">💡</span> Artigos Temáticos &rarr;</h3>
+            <p>Estudos que cruzam vários capítulos: As Sete Igrejas, Os Sete Selos e A Besta com Sete Cabeças — com a mesma análise comparada.</p>
+            <div class="tags"><span class="tag-chip">sete igrejas</span><span class="tag-chip">sete selos</span><span class="tag-chip">a besta</span></div>
+          </a>
+          <a class="card" href="comparar.html" style="text-decoration:none">
+            <h3><span class="card-ico">📊</span> Comparar Tradições &rarr;</h3>
+            <p>Um panorama visual: o perfil hermenêutico de cada tradição num gráfico de radar interativo e numa tabela comparativa.</p>
+            <div class="tags"><span class="tag-chip">preterista</span><span class="tag-chip">historicista</span><span class="tag-chip">futurista</span><span class="tag-chip">idealista</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Navegue por assunto</p>
+          <h2>Nuvem de tags</h2>
+          <p>Clique em um tema para encontrar todos os artigos relacionados.</p>
+        </div>
+        <div class="tag-cloud" id="tag-cloud"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script>
+    document.getElementById('home-search').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var q = encodeURIComponent(document.getElementById('home-q').value.trim());
+      window.location.href = 'busca.html?q=' + q;
+    });
+  </script>
+  <script src="data/search-index.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

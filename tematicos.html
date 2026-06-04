@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artigos Temáticos — Apocalipse</title>
+  <meta name="description" content="Estudos temáticos do Apocalipse que atravessam vários capítulos.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/print.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Grandes temas</p>
+          <h2>Artigos Temáticos</h2>
+          <p>Estudos que cruzam vários capítulos, com a mesma análise comparada por tradição e os mesmos recursos de exploração.</p>
+        </div>
+        <div class="card-grid" id="theme-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="data/search-index.js"></script>
+  <script src="data/icons.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    (function () {
+      var APOC = window.APOC, el = APOC.ui.el, slug = APOC.ui.slugifyTag;
+      var grid = document.getElementById('theme-grid');
+      var themes = (APOC.index || []).filter(function (a) { return a.type === 'theme'; });
+      themes.forEach(function (t) {
+        var ico = APOC.iconForTheme ? APOC.iconForTheme(t.slug) : '💡';
+        var card = el('a', { class: 'card', href: 'tema.html?slug=' + t.slug, style: 'text-decoration:none' }, [
+          el('h3', {}, [el('span', { class: 'card-ico', text: ico }), document.createTextNode(' ' + t.title + ' →')]),
+          el('p', { text: t.summary }),
+          el('div', { class: 'tags' }, (t.tags || []).slice(0, 6).map(function (tag) {
+            return el('span', { class: 'tag-chip', text: tag });
+          }))
+        ]);
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>

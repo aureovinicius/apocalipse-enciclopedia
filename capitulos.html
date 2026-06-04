@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capítulos — Apocalipse</title>
+  <meta name="description" content="Os 22 capítulos do Apocalipse. Escolha um número para ler o artigo comparativo.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/print.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">O livro inteiro</p>
+          <h2>Os 22 Capítulos</h2>
+          <p>Escolha um número para abrir o artigo comparativo daquele capítulo.</p>
+        </div>
+        <div class="num-grid" id="num-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="data/search-index.js"></script>
+  <script src="data/icons.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    (function () {
+      var APOC = window.APOC, el = APOC.ui.el, roman = APOC.ui.roman;
+      var grid = document.getElementById('num-grid');
+      var chapters = (APOC.index || []).filter(function (a) { return a.type === 'chapter'; })
+        .sort(function (a, b) { return a.id - b.id; });
+      chapters.forEach(function (c) {
+        var shortName = c.title.replace(/^Apocalipse \d+\s*[—-]\s*/, '');
+        var cell = el('a', { class: 'num-cell', href: 'artigo.html?cap=' + c.id, title: c.title }, [
+          el('span', { class: 'cap-ico', text: APOC.iconForChapter ? APOC.iconForChapter(c.id) : '' }),
+          el('span', { class: 'arab', text: String(c.id) }),
+          el('span', { class: 'roman', text: roman(c.id) }),
+          el('span', { class: 'cap-name', text: shortName })
+        ]);
+        grid.appendChild(cell);
+      });
+    })();
+  </script>
+</body>
+</html>

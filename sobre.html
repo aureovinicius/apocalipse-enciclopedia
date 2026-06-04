@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre — Apocalipse</title>
+  <meta name="description" content="Metodologia da enciclopédia, glossário das escolas hermenêuticas e tradições cobertas.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/print.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width:820px">
+        <div class="section-head">
+          <p class="eyebrow">Sobre o projeto</p>
+          <h2>Apocalipse, lido por muitas vozes</h2>
+        </div>
+        <p class="lead">Esta enciclopédia reúne, capítulo a capítulo, como diferentes tradições cristãs e movimentos religiosos interpretam o livro do Apocalipse (ou Revelação) de João. O objetivo é informativo e comparativo: apresentar cada leitura com fidelidade e indicar as fontes, sem tomar partido.</p>
+
+        <h3 style="margin-top:36px">Os quatro métodos hermenêuticos</h3>
+        <p class="muted">Quatro grandes "lentes" historicamente usadas para ler o Apocalipse — mais o dispensacionalismo, uma variante futurista moderna muito influente. Elas também são os eixos do gráfico de radar.</p>
+        <div class="card-grid" id="methods-mount" style="margin-top:18px"></div>
+
+        <h3 style="margin-top:42px">Tradições cobertas</h3>
+        <p class="muted">Denominações, igrejas e movimentos cujas leituras aparecem nos artigos.</p>
+        <div class="card-grid" id="trads-mount" style="margin-top:18px"></div>
+
+        <h3 style="margin-top:42px">Como ler cada artigo</h3>
+        <p>Cada capítulo oferece três formas de explorar os dados:</p>
+        <ul>
+          <li><strong>Cards por tradição</strong> — clique para expandir e ler a interpretação com suas fontes; filtre pelos métodos hermenêuticos.</li>
+          <li><strong>Tabela comparativa</strong> — veja, de relance, o método e a postura-chave de cada tradição; ordene as colunas.</li>
+          <li><strong>Gráfico de radar</strong> — compare visualmente os perfis hermenêuticos; salve a imagem ou compartilhe o link da comparação.</li>
+        </ul>
+        <p>Todo artigo traz um botão <strong>Imprimir / Salvar PDF</strong> que gera uma versão limpa e impressa do estudo.</p>
+
+        <div class="notice" style="margin-top:30px">
+          As interpretações sintetizam fontes de cada tradição (documentos eclesiais, comentários e publicações oficiais ou representativas), citadas em cada card. Tradições internamente plurais são apresentadas em suas posições mais difundidas, sem pretender esgotá-las.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="data/methods.js"></script>
+  <script src="data/traditions.js"></script>
+  <script src="data/icons.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    (function () {
+      var APOC = window.APOC, el = APOC.ui.el;
+      var mm = document.getElementById('methods-mount');
+      APOC.methods.forEach(function (m) {
+        mm.appendChild(el('div', { class: 'card' }, [
+          el('h3', {}, [el('span', { style: 'display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;background:' + m.color }), document.createTextNode(m.name)]),
+          el('p', { text: m.desc })
+        ]));
+      });
+      var tm = document.getElementById('trads-mount');
+      APOC.traditions.forEach(function (t) {
+        var ico = APOC.iconForTradition ? APOC.iconForTradition(t.id) : '✦';
+        tm.appendChild(el('div', { class: 'card' }, [
+          el('h3', {}, [el('span', { class: 'card-ico', style: 'background:' + t.color, text: ico }), document.createTextNode(' ' + t.name)]),
+          el('p', { text: t.blurb }),
+          el('div', { class: 'tags' }, [el('span', { class: 'tag-chip', text: t.family })])
+        ]));
+      });
+    })();
+  </script>
+</body>
+</html>
