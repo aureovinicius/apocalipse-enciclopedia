@@ -7,8 +7,6 @@
   'use strict';
   var APOC = window.APOC, el = APOC.ui.el, getParam = APOC.ui.getParam, slug = APOC.ui.slugifyTag;
 
-  var TOTAL_CHAPTERS = 22;
-
   function methodMeta(id) { return APOC.methodById(id) || { id: id, name: id, color: '#999' }; }
   function tradMeta(id) { return APOC.traditionById(id) || { id: id, name: id, color: '#999', scores: {} }; }
   function initials(name) {
@@ -17,9 +15,12 @@
 
   /* ---------- Cabeçalho do artigo ---------- */
   function renderHead(mount, data, type) {
+    var bk = APOC.bookBySlug ? APOC.bookBySlug(data.book) : null;
+    var bookName = bk ? bk.name : 'Apocalipse';
+
     var kicker = type === 'chapter'
-      ? 'Apocalipse · Capítulo ' + data.id + ' · ' + APOC.ui.roman(data.id)
-      : 'Artigo Temático';
+      ? bookName + ' · Capítulo ' + data.id + ' · ' + APOC.ui.roman(data.id)
+      : bookName + ' · Artigo Temático';
 
     var tags = el('div', { class: 'article-tags' }, (data.tags || []).map(function (t) {
       return el('a', { class: 'tag-chip', href: 'busca.html?tag=' + slug(t), text: t });
@@ -28,12 +29,12 @@
     var printBtn = el('button', { class: 'btn btn-gold', type: 'button', onclick: function () { window.print(); } },
       [el('span', { html: '&#128424;' }), 'Imprimir / Salvar PDF']);
 
-    var backHref = type === 'chapter' ? 'capitulos.html' : 'tematicos.html';
-    var backLbl = type === 'chapter' ? '&larr; Todos os capítulos' : '&larr; Todos os temáticos';
+    var backHref = (type === 'chapter' ? 'capitulos.html?livro=' : 'tematicos.html?livro=') + data.book;
+    var backLbl = type === 'chapter' ? '&larr; Capítulos de ' + bookName : '&larr; Temáticos de ' + bookName;
 
     var headIcon = type === 'chapter'
-      ? (APOC.iconForChapter ? APOC.iconForChapter(data.id) : '')
-      : (APOC.iconForTheme ? APOC.iconForTheme(data.slug) : '');
+      ? (APOC.iconForChapter ? APOC.iconForChapter(data.book, data.id) : '')
+      : (APOC.iconForTheme ? APOC.iconForTheme(data.book, data.slug) : '');
 
     mount.appendChild(el('div', { class: 'container article-head' }, [
       el('div', { class: 'crumbs', html: '<a href="' + backHref + '">' + backLbl + '</a>' }),
@@ -43,7 +44,7 @@
         document.createTextNode((headIcon ? ' ' : '') + data.title)
       ]),
       data.summary ? el('p', { class: 'summary', text: data.summary }) : null,
-      type === 'theme' && data.chapters ? el('p', { class: 'muted', html: 'Baseado em ' + data.chapters.map(function (c) { return '<a href="artigo.html?cap=' + c + '">Apocalipse ' + c + '</a>'; }).join(', ') }) : null,
+      type === 'theme' && data.chapters ? el('p', { class: 'muted', html: 'Baseado em ' + data.chapters.map(function (c) { return '<a href="artigo.html?livro=' + data.book + '&cap=' + c + '">' + bookName + ' ' + c + '</a>'; }).join(', ') }) : null,
       tags,
       el('div', { class: 'article-meta' }, [printBtn])
     ]));
@@ -228,11 +229,11 @@
   }
 
   /* ---------- Navegação prev/next (capítulos) ---------- */
-  function buildChapterNav(mount, id) {
+  function buildChapterNav(mount, book, id, total) {
     var nav = el('div', { class: 'container' }, [el('div', { class: 'article-nav' }, [
-      id > 1 ? el('a', { href: 'artigo.html?cap=' + (id - 1), html: '&larr; Apocalipse ' + (id - 1) }) : el('span'),
-      el('a', { href: 'capitulos.html', html: 'Índice &#10070;' }),
-      id < TOTAL_CHAPTERS ? el('a', { href: 'artigo.html?cap=' + (id + 1), html: 'Apocalipse ' + (id + 1) + ' &rarr;' }) : el('span')
+      id > 1 ? el('a', { href: 'artigo.html?livro=' + book + '&cap=' + (id - 1), html: '&larr; Capítulo ' + (id - 1) }) : el('span'),
+      el('a', { href: 'capitulos.html?livro=' + book, html: 'Índice &#10070;' }),
+      id < total ? el('a', { href: 'artigo.html?livro=' + book + '&cap=' + (id + 1), html: 'Capítulo ' + (id + 1) + ' &rarr;' }) : el('span')
     ])]);
     mount.appendChild(nav);
   }
@@ -249,31 +250,37 @@
     var mount = document.getElementById('article-root');
     if (!mount) return;
 
+    var book = getParam('livro') || 'apocalipse';
+    var bk = APOC.bookBySlug ? APOC.bookBySlug(book) : null;
+    if (!bk) { notFound(mount, 'Livro não encontrado. <a href="index.html">Voltar ao início</a>.'); return; }
+    var total = bk.chapters;
+
     if (type === 'chapter') {
       var id = parseInt(getParam('cap'), 10);
-      if (!id || id < 1 || id > TOTAL_CHAPTERS) { notFound(mount, 'Capítulo inválido. <a href="capitulos.html">Ver índice de capítulos</a>.'); return; }
-      document.title = 'Apocalipse ' + id + ' — Apocalipse';
-      APOC.ui.loadScript('data/chapters/cap-' + id + '.js', function (ok) {
-        var data = APOC.chapters[id];
+      if (!id || id < 1 || id > total) { notFound(mount, 'Capítulo inválido. <a href="capitulos.html?livro=' + book + '">Ver índice de capítulos</a>.'); return; }
+      APOC._loadingBook = book;
+      APOC.ui.loadScript('data/' + book + '/chapters/cap-' + id + '.js', function (ok) {
+        var data = APOC.getChapter(book, id);
         if (!ok || !data) { notFound(mount, 'Não foi possível carregar o capítulo ' + id + '.'); return; }
         renderHead(mount, data, 'chapter');
         buildIntro(mount, data);
         buildExplore(mount, data, 'chapter');
-        buildChapterNav(mount, id);
+        buildChapterNav(mount, book, id, total);
         document.title = data.title + ' — Apocalipse';
       });
     } else {
       var s = getParam('slug');
-      if (!s) { notFound(mount, 'Tema não especificado. <a href="tematicos.html">Ver temáticos</a>.'); return; }
-      APOC.ui.loadScript('data/themes/' + s + '.js', function (ok) {
-        var data = APOC.themes[s];
+      if (!s) { notFound(mount, 'Tema não especificado. <a href="tematicos.html?livro=' + book + '">Ver temáticos</a>.'); return; }
+      APOC._loadingBook = book;
+      APOC.ui.loadScript('data/' + book + '/themes/' + s + '.js', function (ok) {
+        var data = APOC.getTheme(book, s);
         if (!ok || !data) { notFound(mount, 'Não foi possível carregar o tema solicitado.'); return; }
         renderHead(mount, data, 'theme');
         buildIntro(mount, data);
         buildExplore(mount, data, 'theme');
         mount.appendChild(el('div', { class: 'container' }, [el('div', { class: 'article-nav' }, [
-          el('a', { href: 'tematicos.html', html: '&larr; Todos os temáticos' }),
-          el('a', { href: 'capitulos.html', html: 'Capítulos &#10070;' })
+          el('a', { href: 'tematicos.html?livro=' + book, html: '&larr; Temáticos de ' + bk.name }),
+          el('a', { href: 'capitulos.html?livro=' + book, html: 'Capítulos &#10070;' })
         ])]));
         document.title = data.title + ' — Apocalipse';
       });

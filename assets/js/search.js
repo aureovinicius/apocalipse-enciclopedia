@@ -8,12 +8,19 @@
 
   function norm(s) { return (s || '').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
 
-  function articleHref(a) { return a.type === 'theme' ? 'tema.html?slug=' + a.slug : 'artigo.html?cap=' + a.id; }
-  function typeLabel(a) { return a.type === 'theme' ? 'Temático' : 'Capítulo ' + a.id; }
+  function bookName(a) { var bk = APOC.bookBySlug ? APOC.bookBySlug(a.book) : null; return bk ? bk.name : ''; }
+  function articleHref(a) {
+    var b = a.book || 'apocalipse';
+    return a.type === 'theme' ? 'tema.html?livro=' + b + '&slug=' + a.slug : 'artigo.html?livro=' + b + '&cap=' + a.id;
+  }
+  function typeLabel(a) {
+    var bn = bookName(a);
+    return a.type === 'theme' ? (bn ? bn + ' · Temático' : 'Temático') : (bn ? bn + ' ' + a.id : 'Capítulo ' + a.id);
+  }
 
   function matchQuery(a, q) {
     if (!q) return true;
-    var hay = norm([a.title, a.summary, (a.tags || []).join(' '), (a.traditions || []).join(' ')].join(' '));
+    var hay = norm([a.title, a.summary, bookName(a), (a.tags || []).join(' '), (a.traditions || []).join(' ')].join(' '));
     return q.split(/\s+/).filter(Boolean).every(function (term) { return hay.indexOf(norm(term)) >= 0; });
   }
   function matchTag(a, tag) {
@@ -55,8 +62,11 @@
     }
 
     var results = index.filter(function (a) { return matchQuery(a, q) && matchTag(a, tag); });
-    // ordena: capítulos por número, temáticos depois
+    // ordena: por livro (ordem do registro), depois capítulos por número e temáticos
     results.sort(function (a, b) {
+      var oa = ((APOC.bookBySlug && APOC.bookBySlug(a.book)) || {}).order || 99;
+      var ob = ((APOC.bookBySlug && APOC.bookBySlug(b.book)) || {}).order || 99;
+      if (oa !== ob) return oa - ob;
       if (a.type !== b.type) return a.type === 'chapter' ? -1 : 1;
       return (a.id || 0) - (b.id || 0) || (a.title || '').localeCompare(b.title || '');
     });

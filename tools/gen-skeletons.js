@@ -42,7 +42,7 @@ function hasContent(file) {
 }
 
 function writeChapter([id, name, summary, tags]) {
-  const file = path.join(__dirname, '..', 'data', 'chapters', `cap-${id}.js`);
+  const file = path.join(__dirname, '..', 'data', 'apocalipse', 'chapters', `cap-${id}.js`);
   if (hasContent(file)) { console.log('mantido (já tem conteúdo):', file); return; }
   const out =
 `/* Apocalipse ${id} — esqueleto. Substituir interpretations[] pelo conteúdo pesquisado. */
@@ -61,7 +61,7 @@ window.APOC.register('chapter', {
 }
 
 function writeTheme([slug, title, summary, tags, chapters]) {
-  const file = path.join(__dirname, '..', 'data', 'themes', `${slug}.js`);
+  const file = path.join(__dirname, '..', 'data', 'apocalipse', 'themes', `${slug}.js`);
   if (hasContent(file)) { console.log('mantido (já tem conteúdo):', file); return; }
   const out =
 `/* Tema "${title}" — esqueleto. Substituir interpretations[] pelo conteúdo pesquisado. */

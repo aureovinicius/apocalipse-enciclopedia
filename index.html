@@ -17,7 +17,7 @@
         <p class="hero-orn">&#10070; &nbsp; &#10070; &nbsp; &#10070;</p>
         <p class="eyebrow">Enciclopédia das interpretações</p>
         <h1 class="title-xl">Apocalipse</h1>
-        <p class="subtitle">As visões de João lidas por mais de quinze tradições — capítulo a capítulo.</p>
+        <p class="subtitle">As Escrituras proféticas — Apocalipse, Daniel e mais — lidas por mais de quinze tradições, capítulo a capítulo.</p>
 
         <form class="searchbox" id="home-search" role="search" aria-label="Buscar no site">
           <input type="search" id="home-q" name="q" placeholder="Buscar capítulos, temas ou tradições…" aria-label="Buscar">
@@ -28,30 +28,14 @@
 
     <p class="rule-orn">&#10070; &#8212; &#10070; &#8212; &#10070;</p>
 
-    <section class="section">
+    <section class="section" id="livros">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Como explorar</p>
-          <h2>Dois caminhos de estudo</h2>
-          <p>Percorra o livro pelos seus vinte e dois capítulos ou siga os grandes temas que atravessam o Apocalipse.</p>
+          <p class="eyebrow">Escolha um livro</p>
+          <h2>Livros da Bíblia</h2>
+          <p>Cada livro tem seus capítulos analisados lado a lado por mais de quinze tradições, com fontes citadas.</p>
         </div>
-        <div class="card-grid">
-          <a class="card" href="capitulos.html" style="text-decoration:none">
-            <h3><span class="card-ico">📖</span> Os 22 Capítulos &rarr;</h3>
-            <p>Cada capítulo é um artigo que reúne, lado a lado, as interpretações católica, ortodoxa, protestante, adventista, pentecostal, espírita e muitas outras — com fontes citadas.</p>
-            <div class="tags"><span class="tag-chip">cards por tradição</span><span class="tag-chip">filtro por método</span><span class="tag-chip">tabela comparativa</span></div>
-          </a>
-          <a class="card" href="tematicos.html" style="text-decoration:none">
-            <h3><span class="card-ico">💡</span> Artigos Temáticos &rarr;</h3>
-            <p>Estudos que cruzam vários capítulos: As Sete Igrejas, Os Sete Selos e A Besta com Sete Cabeças — com a mesma análise comparada.</p>
-            <div class="tags"><span class="tag-chip">sete igrejas</span><span class="tag-chip">sete selos</span><span class="tag-chip">a besta</span></div>
-          </a>
-          <a class="card" href="comparar.html" style="text-decoration:none">
-            <h3><span class="card-ico">📊</span> Comparar Tradições &rarr;</h3>
-            <p>Um panorama do perfil hermenêutico de cada tradição, lado a lado, numa tabela comparativa.</p>
-            <div class="tags"><span class="tag-chip">preterista</span><span class="tag-chip">historicista</span><span class="tag-chip">futurista</span><span class="tag-chip">idealista</span></div>
-          </a>
-        </div>
+        <div class="card-grid" id="books-grid"></div>
       </div>
     </section>
 
@@ -60,9 +44,10 @@
         <div class="section-head">
           <p class="eyebrow">Navegue por assunto</p>
           <h2>Nuvem de tags</h2>
-          <p>Clique em um tema para encontrar todos os artigos relacionados.</p>
+          <p>Clique em um tema para encontrar todos os artigos relacionados, de qualquer livro.</p>
         </div>
         <div class="tag-cloud" id="tag-cloud"></div>
+        <p style="text-align:center;margin-top:24px"><a class="btn" href="comparar.html"><span class="card-ico">📊</span> Comparar tradições</a></p>
       </div>
     </section>
   </main>
@@ -76,7 +61,21 @@
       window.location.href = 'busca.html?q=' + q;
     });
   </script>
+  <script src="data/books.js"></script>
   <script src="data/search-index.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    (function () {
+      var APOC = window.APOC, el = APOC.ui.el;
+      var grid = document.getElementById('books-grid');
+      (APOC.books || []).slice().sort(function (a, b) { return (a.order || 99) - (b.order || 99); }).forEach(function (b) {
+        grid.appendChild(el('a', { class: 'card', href: 'capitulos.html?livro=' + b.slug, style: 'text-decoration:none' }, [
+          el('h3', {}, [el('span', { class: 'card-ico', text: b.icon }), document.createTextNode(' ' + b.name + ' →')]),
+          el('p', { text: b.blurb }),
+          el('div', { class: 'tags' }, [el('span', { class: 'tag-chip', text: b.chapters + ' capítulos' })])
+        ]));
+      });
+    })();
+  </script>
 </body>
 </html>

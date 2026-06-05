@@ -8,14 +8,20 @@
 
   window.APOC = window.APOC || {};
   var APOC = window.APOC;
-  APOC.chapters = APOC.chapters || {};
-  APOC.themes = APOC.themes || {};
+  APOC.chapters = APOC.chapters || {}; // { livro: { id: obj } }
+  APOC.themes = APOC.themes || {};     // { livro: { slug: obj } }
 
-  /* Registro chamado pelos arquivos de dados em data/ */
+  /* Registro chamado pelos arquivos de dados em data/<livro>/.
+     O livro vem do próprio objeto (campo `book`) ou de APOC._loadingBook,
+     definido pelo carregador antes de injetar o script. */
   APOC.register = function (type, obj) {
-    if (type === 'chapter') APOC.chapters[obj.id] = obj;
-    else if (type === 'theme') APOC.themes[obj.slug] = obj;
+    var book = obj.book || APOC._loadingBook || 'apocalipse';
+    obj.book = book;
+    if (type === 'chapter') { (APOC.chapters[book] = APOC.chapters[book] || {})[obj.id] = obj; }
+    else if (type === 'theme') { (APOC.themes[book] = APOC.themes[book] || {})[obj.slug] = obj; }
   };
+  APOC.getChapter = function (book, id) { return (APOC.chapters[book] || {})[id] || null; };
+  APOC.getTheme = function (book, slug) { return (APOC.themes[book] || {})[slug] || null; };
 
   /* ---------- Helpers de DOM ---------- */
   function el(tag, attrs, children) {
@@ -64,8 +70,7 @@
   /* ---------- Cabeçalho / Rodapé compartilhados ---------- */
   var NAV = [
     { href: 'index.html', label: 'Início', icon: '🏠' },
-    { href: 'capitulos.html', label: 'Capítulos', icon: '📖' },
-    { href: 'tematicos.html', label: 'Temáticos', icon: '💡' },
+    { href: 'index.html#livros', label: 'Livros', icon: '📚' },
     { href: 'comparar.html', label: 'Comparar', icon: '📊' },
     { href: 'sobre.html', label: 'Sobre', icon: '📜' }
   ];

@@ -4,9 +4,10 @@
 > editoriais. Para o histórico narrativo das decisões, veja `CONTEXTO-DO-PROJETO.md`.
 
 ## Visão geral
-Enciclopédia web que compara, **capítulo a capítulo**, como ~16 tradições teológicas
-interpretam o livro do **Apocalipse**. Idioma: **português do Brasil**. O projeto deve
-crescer no futuro para **outros livros e temas bíblicos** (ver "Expansão").
+Enciclopédia web **multi-livros** que compara, **capítulo a capítulo**, como ~16 tradições
+teológicas interpretam livros bíblicos. Idioma: **português do Brasil**. Livros já publicados:
+**Apocalipse** (22 capítulos + 3 temáticos) e **Daniel** (12 capítulos). Novos livros seguem o
+mesmo padrão (ver "Expansão" e `docs/CLAUDE-modelo-multilivros.md`).
 
 - Repositório: `https://github.com/aureovinicius/apocalipse-enciclopedia`
 - Site publicado (GitHub Pages): `https://aureovinicius.github.io/apocalipse-enciclopedia/`
@@ -19,21 +20,31 @@ crescer no futuro para **outros livros e temas bíblicos** (ver "Expansão").
   (config de preview em `.claude/launch.json`).
 - Deploy: push na branch `main` → GitHub Pages republica sozinho.
 
-## Estrutura
-- Páginas: `index.html` (home: busca + nuvem de tags), `capitulos.html` (grade dos 22 números),
-  `artigo.html?cap=N`, `tematicos.html`, `tema.html?slug=...`, `busca.html` (`?q=` / `?tag=`),
-  `comparar.html` (tabela comparativa global), `sobre.html`.
-- `assets/js/`: `app.js` (núcleo/registro/menu/nuvem de tags), `article.js` (cards+filtro e tabela),
-  `search.js` (busca client-side).
+## Estrutura (multi-livros)
+- Páginas: `index.html` (home: **vitrine de livros** + busca + nuvem de tags global),
+  `capitulos.html?livro=<slug>` (grade de capítulos do livro), `artigo.html?livro=<slug>&cap=N`,
+  `tematicos.html?livro=<slug>`, `tema.html?livro=<slug>&slug=...`, `busca.html` (`?q=` / `?tag=`,
+  global a todos os livros), `comparar.html` (tabela comparativa global), `sobre.html`.
+  (Rotas sem `?livro=` assumem `apocalipse`, mantendo compatibilidade.)
+- `assets/js/`: `app.js` (núcleo/registro por livro/menu/nuvem de tags), `article.js`
+  (roteamento por livro, cards+filtro e tabela), `search.js` (busca client-side).
 - `assets/css/`: `styles.css` (tema) e `print.css` (impressão/PDF).
-- `data/`: `traditions.js`, `methods.js`, `icons.js`, `search-index.js`,
-  `chapters/cap-1..22.js`, `themes/*.js`.
-- `tools/gen-skeletons.js`: gera esqueletos de capítulos/temas (não sobrescreve quem já tem conteúdo).
+- `data/`: globais → `books.js` (registro de livros), `traditions.js`, `methods.js`, `icons.js`
+  (ícones por livro), `search-index.js` (cada entrada tem `book`).
+- `data/<livro>/chapters/cap-N.js` e `data/<livro>/themes/<slug>.js` — ex.: `data/apocalipse/...`,
+  `data/daniel/...`.
+- `tools/`: `gen-skeletons.js` (Apocalipse) e `gen-daniel-skeletons.js` — geram esqueletos
+  (não sobrescrevem quem já tem conteúdo).
+
+O registro lê o livro de `obj.book` ou de `APOC._loadingBook` (definido pelo carregador antes de
+injetar o script). Dados ficam em `APOC.chapters[livro][id]` / `APOC.themes[livro][slug]`
+(use `APOC.getChapter(livro,id)` / `APOC.getTheme(livro,slug)`).
 
 ## Modelo de dados
-Capítulo (`data/chapters/cap-N.js`):
+Capítulo (`data/<livro>/chapters/cap-N.js`):
 ```js
 window.APOC.register('chapter', {
+  book: 'apocalipse',               // ou 'daniel', etc.
   id, slug, title, summary, tags: [...],
   verses: [{ ref, text }],          // versículo(s) em destaque (Almeida, domínio público)
   intro: '…',                       // síntese NEUTRA do panorama interpretativo (\n\n entre parágrafos)
@@ -45,8 +56,9 @@ window.APOC.register('chapter', {
   ]
 });
 ```
-Tema (`data/themes/<slug>.js`): igual, mas `register('theme', {...})` com `slug` e `chapters: [..]`
-(em vez de `id`). Ao criar artigo novo, atualizar também `data/search-index.js`.
+Tema (`data/<livro>/themes/<slug>.js`): igual, mas `register('theme', {...})` com `slug` e
+`chapters: [..]`. Ao criar artigo novo: registrar o livro em `data/books.js`, os ícones em
+`data/icons.js` e a entrada (com `book`) em `data/search-index.js`.
 
 - **16 tradições** (ids): `catolica, ortodoxa, luterana, reformada, metodista, evangelica,
   pentecostal, adventista, testemunhas, sud, espirita, esc-preterista, esc-historicista,

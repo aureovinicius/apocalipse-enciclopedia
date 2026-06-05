@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Capítulos — Apocalipse</title>
-  <meta name="description" content="Os 22 capítulos do Apocalipse. Escolha um número para ler o artigo comparativo.">
+  <meta name="description" content="Os capítulos do livro. Escolha um número para ler o artigo comparativo.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/print.css">
 </head>
@@ -14,37 +14,53 @@
   <main>
     <section class="section">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">O livro inteiro</p>
-          <h2>Os 22 Capítulos</h2>
-          <p>Escolha um número para abrir o artigo comparativo daquele capítulo.</p>
-        </div>
+        <div class="section-head" id="grid-head"></div>
         <div class="num-grid" id="num-grid"></div>
+        <div id="theme-link" style="text-align:center;margin-top:30px"></div>
       </div>
     </section>
   </main>
 
   <footer id="site-footer"></footer>
 
+  <script src="data/books.js"></script>
   <script src="data/search-index.js"></script>
   <script src="data/icons.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     (function () {
-      var APOC = window.APOC, el = APOC.ui.el, roman = APOC.ui.roman;
+      var APOC = window.APOC, el = APOC.ui.el, roman = APOC.ui.roman, getParam = APOC.ui.getParam;
+      var book = getParam('livro') || 'apocalipse';
+      var bk = APOC.bookBySlug(book) || APOC.bookBySlug('apocalipse');
+      book = bk.slug;
+      document.title = 'Capítulos de ' + bk.name + ' — Apocalipse';
+
+      var head = document.getElementById('grid-head');
+      head.appendChild(el('p', { class: 'eyebrow', text: 'O livro inteiro' }));
+      head.appendChild(el('h2', {}, [el('span', { class: 'card-ico', text: bk.icon }), document.createTextNode(' ' + bk.name + ' — ' + bk.chapters + ' capítulos')]));
+      head.appendChild(el('p', { text: 'Escolha um número para abrir o artigo comparativo daquele capítulo.' }));
+
       var grid = document.getElementById('num-grid');
-      var chapters = (APOC.index || []).filter(function (a) { return a.type === 'chapter'; })
+      var chapters = (APOC.index || []).filter(function (a) { return a.type === 'chapter' && a.book === book; })
         .sort(function (a, b) { return a.id - b.id; });
       chapters.forEach(function (c) {
-        var shortName = c.title.replace(/^Apocalipse \d+\s*[—-]\s*/, '');
-        var cell = el('a', { class: 'num-cell', href: 'artigo.html?cap=' + c.id, title: c.title }, [
-          el('span', { class: 'cap-ico', text: APOC.iconForChapter ? APOC.iconForChapter(c.id) : '' }),
+        var shortName = c.title.replace(/^[^—-]*[—-]\s*/, '');
+        var cell = el('a', { class: 'num-cell', href: 'artigo.html?livro=' + book + '&cap=' + c.id, title: c.title }, [
+          el('span', { class: 'cap-ico', text: APOC.iconForChapter ? APOC.iconForChapter(book, c.id) : '' }),
           el('span', { class: 'arab', text: String(c.id) }),
           el('span', { class: 'roman', text: roman(c.id) }),
           el('span', { class: 'cap-name', text: shortName })
         ]);
         grid.appendChild(cell);
       });
+
+      // Link para os temáticos do livro (se houver)
+      var hasThemes = (APOC.index || []).some(function (a) { return a.type === 'theme' && a.book === book; });
+      if (hasThemes) {
+        document.getElementById('theme-link').appendChild(
+          el('a', { class: 'btn', href: 'tematicos.html?livro=' + book }, [el('span', { class: 'card-ico', text: '💡' }), ' Artigos temáticos de ' + bk.name])
+        );
+      }
     })();
   </script>
 </body>

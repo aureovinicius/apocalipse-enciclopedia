@@ -5,9 +5,15 @@
 > técnicas/editoriais resumidas estão em `CLAUDE.md`.
 
 ## O que é
-Uma **enciclopédia web sobre o Apocalipse** que compara, capítulo a capítulo, as interpretações
-de ~16 tradições teológicas, e um **canal de YouTube** baseado nesses artigos. Pretende-se, no
-futuro, **acrescentar outros livros e temas bíblicos** ao site e ao canal.
+Uma **enciclopédia web multi-livros** que compara, capítulo a capítulo, as interpretações de
+~16 tradições teológicas, e um **canal de YouTube** baseado nesses artigos. Já contém dois livros:
+**Apocalipse** (22 capítulos + 3 temáticos) e **Daniel** (12 capítulos), e foi estruturada para
+**acrescentar outros livros e temas bíblicos** com o mesmo padrão.
+
+> Atualização: o site foi convertido para o formato **multi-livros** (registro em `data/books.js`,
+> dados em `data/<livro>/…`, rotas `?livro=<slug>&cap=N`, home como vitrine de livros) e **Daniel**
+> foi adicionado seguindo todas as diretrizes (16 interpretações com fontes + versos + introdução +
+> ênfase adventista por capítulo). Detalhes técnicos em `CLAUDE.md`.
 
 - Repositório: https://github.com/aureovinicius/apocalipse-enciclopedia (público)
 - Site no ar: https://aureovinicius.github.io/apocalipse-enciclopedia/

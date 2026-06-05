@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artigos Temáticos — Apocalipse</title>
-  <meta name="description" content="Estudos temáticos do Apocalipse que atravessam vários capítulos.">
+  <meta name="description" content="Estudos temáticos que atravessam vários capítulos.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/print.css">
 </head>
@@ -14,29 +14,41 @@
   <main>
     <section class="section">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Grandes temas</p>
-          <h2>Artigos Temáticos</h2>
-          <p>Estudos que cruzam vários capítulos, com a mesma análise comparada por tradição e os mesmos recursos de exploração.</p>
-        </div>
+        <div class="section-head" id="theme-head"></div>
         <div class="card-grid" id="theme-grid"></div>
+        <div id="empty-msg"></div>
       </div>
     </section>
   </main>
 
   <footer id="site-footer"></footer>
 
+  <script src="data/books.js"></script>
   <script src="data/search-index.js"></script>
   <script src="data/icons.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     (function () {
-      var APOC = window.APOC, el = APOC.ui.el, slug = APOC.ui.slugifyTag;
+      var APOC = window.APOC, el = APOC.ui.el, getParam = APOC.ui.getParam;
+      var book = getParam('livro') || 'apocalipse';
+      var bk = APOC.bookBySlug(book) || APOC.bookBySlug('apocalipse');
+      book = bk.slug;
+      document.title = 'Temáticos de ' + bk.name + ' — Apocalipse';
+
+      var head = document.getElementById('theme-head');
+      head.appendChild(el('p', { class: 'eyebrow', text: 'Grandes temas' }));
+      head.appendChild(el('h2', {}, [el('span', { class: 'card-ico', text: '💡' }), document.createTextNode(' Temáticos de ' + bk.name)]));
+      head.appendChild(el('p', { text: 'Estudos que cruzam vários capítulos, com a mesma análise comparada por tradição.' }));
+
       var grid = document.getElementById('theme-grid');
-      var themes = (APOC.index || []).filter(function (a) { return a.type === 'theme'; });
+      var themes = (APOC.index || []).filter(function (a) { return a.type === 'theme' && a.book === book; });
+      if (!themes.length) {
+        document.getElementById('empty-msg').appendChild(el('div', { class: 'notice', html: 'Ainda não há artigos temáticos para ' + bk.name + '. <a href="capitulos.html?livro=' + book + '">Ver os capítulos</a>.' }));
+        return;
+      }
       themes.forEach(function (t) {
-        var ico = APOC.iconForTheme ? APOC.iconForTheme(t.slug) : '💡';
-        var card = el('a', { class: 'card', href: 'tema.html?slug=' + t.slug, style: 'text-decoration:none' }, [
+        var ico = APOC.iconForTheme ? APOC.iconForTheme(book, t.slug) : '💡';
+        var card = el('a', { class: 'card', href: 'tema.html?livro=' + book + '&slug=' + t.slug, style: 'text-decoration:none' }, [
           el('h3', {}, [el('span', { class: 'card-ico', text: ico }), document.createTextNode(' ' + t.title + ' →')]),
           el('p', { text: t.summary }),
           el('div', { class: 'tags' }, (t.tags || []).slice(0, 6).map(function (tag) {
