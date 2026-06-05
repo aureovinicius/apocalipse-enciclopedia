@@ -5,3 +5,6 @@ Thumbs.db
 # Logs locais / temporários
 *.log
 /tmp/
+
+# Roteiros de vídeo e narrações TTS (não versionar)
+roteiros-videos/
