@@ -1,4 +1,4 @@
-/* Métodos hermenêuticos — eixos do radar e valores do filtro.
+/* Métodos hermenêuticos — eixos da comparação e valores do filtro.
    Cada interpretação de um artigo aponta para um destes (campo `method`). */
 (function () {
   window.APOC = window.APOC || {};

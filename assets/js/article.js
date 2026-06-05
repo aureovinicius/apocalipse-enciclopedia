@@ -1,6 +1,6 @@
 /* ==========================================================================
-   article.js — renderiza um artigo (capítulo ou temático) com as três
-   formas de explorar: cards expansíveis (+filtro), tabela comparativa, radar.
+   article.js — renderiza um artigo (capítulo ou temático) com duas
+   formas de explorar: cards expansíveis (+filtro) e tabela comparativa.
    A página define window.ARTICLE_TYPE = 'chapter' | 'theme'.
    ========================================================================== */
 (function () {
@@ -13,13 +13,6 @@
   function tradMeta(id) { return APOC.traditionById(id) || { id: id, name: id, color: '#999', scores: {} }; }
   function initials(name) {
     return name.split(/[\s/]+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('').toUpperCase();
-  }
-
-  function toast(msg) {
-    var t = el('div', { class: 'toast', text: msg });
-    document.body.appendChild(t);
-    requestAnimationFrame(function () { t.classList.add('is-show'); });
-    setTimeout(function () { t.classList.remove('is-show'); setTimeout(function () { t.remove(); }, 300); }, 2200);
   }
 
   /* ---------- Cabeçalho do artigo ---------- */
@@ -202,15 +195,6 @@
     return panel;
   }
 
-  /* ---------- Painel 3: Radar ---------- */
-  function buildRadarPanel(interps, articleKey) {
-    var panel = el('div', { class: 'explore-panel panel-radar' });
-    panel.appendChild(el('p', { class: 'explore-section-title', text: 'Radar hermenêutico' }));
-    var traditionIds = interps.map(function (i) { return i.tradition; });
-    panel.__chart = APOC.buildRadar(panel, traditionIds, { shareKey: articleKey, toast: toast });
-    return panel;
-  }
-
   /* ---------- Abas ---------- */
   function buildExplore(mount, data, type) {
     var interps = (data.interpretations || []).filter(function (i) { return i && i.tradition; });
@@ -223,17 +207,15 @@
 
     var panels = {
       cards: buildCardsPanel(interps),
-      table: buildTablePanel(interps),
-      radar: buildRadarPanel(interps, (type === 'chapter' ? 'cap' + data.id : data.slug))
+      table: buildTablePanel(interps)
     };
 
-    var tabsDef = [['cards', '&#9707; Cards'], ['table', '&#9783; Tabela'], ['radar', '&#9678; Radar']];
+    var tabsDef = [['cards', '&#9707; Cards'], ['table', '&#9783; Tabela']];
     var tabBtns = {};
     var tabs = el('div', { class: 'explore-tabs' }, tabsDef.map(function (d) {
       var b = el('button', { class: 'explore-tab' + (d[0] === 'cards' ? ' is-active' : ''), type: 'button', html: d[1], onclick: function () {
         Object.keys(panels).forEach(function (k) { panels[k].classList.remove('is-active'); tabBtns[k].classList.remove('is-active'); });
         panels[d[0]].classList.add('is-active'); b.classList.add('is-active');
-        if (d[0] === 'radar' && panels.radar.__chart) setTimeout(function () { panels.radar.__chart.resize(); }, 30);
       } });
       tabBtns[d[0]] = b;
       return b;
@@ -242,7 +224,6 @@
     wrap.appendChild(tabs);
     wrap.appendChild(panels.cards);
     wrap.appendChild(panels.table);
-    wrap.appendChild(panels.radar);
     mount.appendChild(wrap);
   }
 

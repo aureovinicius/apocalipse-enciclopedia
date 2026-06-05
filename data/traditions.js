@@ -1,7 +1,7 @@
 /* Tradições / escolas cobertas pela enciclopédia.
    `scores`: tendência (0–5) de cada tradição em relação a cada eixo hermenêutico
    (preterista, historicista, futurista, idealista, dispensacionalista).
-   Usado pelo gráfico de radar e pela tabela comparativa global. */
+   Usado pela tabela comparativa global. */
 (function () {
   window.APOC = window.APOC || {};
   window.APOC.traditions = [

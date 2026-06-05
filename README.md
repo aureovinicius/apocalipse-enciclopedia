@@ -24,21 +24,18 @@ arquivos `.js` que se registram em `window.APOC` (sem `fetch`).
 - `tematicos.html` — cards dos artigos temáticos → `tema.html?slug=...`.
 - `artigo.html` / `tema.html` — template de artigo (capítulo / temático).
 - `busca.html` — busca por texto (`?q=`) e filtro por tag (`?tag=`).
-- `comparar.html` — radar global + tabela comparativa das tradições.
+- `comparar.html` — tabela comparativa das tendências de cada tradição.
 - `sobre.html` — metodologia, glossário das escolas e tradições.
 - `assets/css/` — `styles.css` (tema) e `print.css` (impressão/PDF).
-- `assets/js/` — `app.js` (núcleo/menu), `article.js` (cards+filtro, tabela, radar),
-  `search.js` (busca), `radar.js` (Chart.js).
-- `assets/lib/chart.umd.min.js` — Chart.js vendorizado (offline).
+- `assets/js/` — `app.js` (núcleo/menu), `article.js` (cards+filtro, tabela),
+  `search.js` (busca).
 - `data/` — `traditions.js`, `methods.js`, `search-index.js`,
   `chapters/cap-1..22.js`, `themes/*.js`.
 
-## Cada artigo oferece três formas de explorar
+## Cada artigo oferece duas formas de explorar
 
 1. **Cards por tradição** (expansíveis) com **filtro por método hermenêutico**.
 2. **Tabela comparativa** (tradição × método × postura-chave), ordenável.
-3. **Gráfico de radar** interativo — selecione tradições, **Salve PNG** ou **Compartilhe**
-   o link (a seleção é codificada no `#hash`).
 
 Há ainda um botão **Imprimir / Salvar PDF** em cada artigo (`window.print()` + `print.css`).
 

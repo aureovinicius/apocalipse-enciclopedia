@@ -14,7 +14,7 @@
   /* Esconde toda a UI interativa */
   #site-header, #site-footer, .nav-toggle, .site-nav,
   .explore-tabs, .method-filter, .article-nav,
-  .radar-controls, .radar-actions, .btn, .toast,
+  .btn, .toast,
   .interp-chev, .searchbox, .tag-cloud, .skeleton-flag { display: none !important; }
 
   .container { max-width: 100%; padding: 0; }
@@ -29,7 +29,6 @@
 
   /* Mostra todos os painéis de exploração e cabe na impressão */
   .explore-panel { display: block !important; page-break-inside: auto; }
-  .explore-panel.panel-radar { display: none !important; } /* radar é melhor como imagem; oculto na impressão */
   .explore-section-title { display: block !important; font-family: 'Playfair Display', serif; font-size: 14pt; color: #7b2230 !important; margin: 16px 0 8px; border-bottom: 1px solid #c8a24a; padding-bottom: 4px; }
 
   /* Interpretações: todas abertas e em fluxo de coluna única */

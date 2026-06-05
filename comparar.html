@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comparar Tradições — Apocalipse</title>
-  <meta name="description" content="Panorama visual do perfil hermenêutico de cada tradição: gráfico de radar e tabela comparativa.">
+  <meta name="description" content="Panorama do perfil hermenêutico de cada tradição numa tabela comparativa.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/print.css">
 </head>
@@ -17,12 +17,8 @@
         <div class="section-head">
           <p class="eyebrow">Panorama</p>
           <h2>Comparar Tradições</h2>
-          <p>O perfil hermenêutico de cada tradição em cinco eixos — preterista, historicista, futurista, idealista e dispensacionalista. Escolha as tradições, salve a imagem ou compartilhe a comparação.</p>
+          <p>O perfil hermenêutico de cada tradição em cinco eixos — preterista, historicista, futurista, idealista e dispensacionalista — lado a lado numa tabela comparativa.</p>
         </div>
-
-        <div id="radar-mount"></div>
-
-        <p class="rule-orn">&#10070; &#8212; &#10070; &#8212; &#10070;</p>
 
         <div class="section-head">
           <h3>Tabela das tendências</h3>
@@ -35,25 +31,13 @@
 
   <footer id="site-footer"></footer>
 
-  <script src="assets/lib/chart.umd.min.js"></script>
   <script src="data/methods.js"></script>
   <script src="data/traditions.js"></script>
   <script src="assets/js/app.js"></script>
-  <script src="assets/js/radar.js"></script>
   <script>
     (function () {
       var APOC = window.APOC, el = APOC.ui.el;
       var trads = APOC.traditions, methods = APOC.methods;
-
-      function toast(msg) {
-        var t = el('div', { class: 'toast', text: msg });
-        document.body.appendChild(t);
-        requestAnimationFrame(function () { t.classList.add('is-show'); });
-        setTimeout(function () { t.classList.remove('is-show'); setTimeout(function () { t.remove(); }, 300); }, 2200);
-      }
-
-      // Radar com todas as tradições disponíveis
-      APOC.buildRadar(document.getElementById('radar-mount'), trads.map(function (t) { return t.id; }), { shareKey: 'global', toast: toast });
 
       // Tabela comparativa global
       var dominant = function (t) {
