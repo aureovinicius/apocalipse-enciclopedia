@@ -266,7 +266,7 @@
         buildIntro(mount, data);
         buildExplore(mount, data, 'chapter');
         buildChapterNav(mount, book, id, total);
-        document.title = data.title + ' — Apocalipse';
+        document.title = data.title + ' — Profecias';
       });
     } else {
       var s = getParam('slug');
@@ -282,7 +282,7 @@
           el('a', { href: 'tematicos.html?livro=' + book, html: '&larr; Temáticos de ' + bk.name }),
           el('a', { href: 'capitulos.html?livro=' + book, html: 'Capítulos &#10070;' })
         ])]));
-        document.title = data.title + ' — Apocalipse';
+        document.title = data.title + ' — Profecias';
       });
     }
   });

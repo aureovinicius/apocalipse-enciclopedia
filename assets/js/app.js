@@ -89,9 +89,9 @@
     });
 
     var nav = el('nav', { class: 'site-nav', 'aria-label': 'Navegação principal' }, links);
-    var brand = el('a', { href: 'index.html', class: 'brand', 'aria-label': 'Apocalipse — início' }, [
+    var brand = el('a', { href: 'index.html', class: 'brand', 'aria-label': 'Profecias — início' }, [
       el('span', { class: 'brand-ornament', text: '📖' }),
-      el('span', { class: 'brand-name', text: 'Apocalipse' })
+      el('span', { class: 'brand-name', text: 'Profecias' })
     ]);
 
     var toggle = el('button', {

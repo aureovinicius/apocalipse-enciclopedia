@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capítulos — Apocalipse</title>
+  <title>Capítulos — Profecias</title>
   <meta name="description" content="Os capítulos do livro. Escolha um número para ler o artigo comparativo.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/print.css">
@@ -33,7 +33,7 @@
       var book = getParam('livro') || 'apocalipse';
       var bk = APOC.bookBySlug(book) || APOC.bookBySlug('apocalipse');
       book = bk.slug;
-      document.title = 'Capítulos de ' + bk.name + ' — Apocalipse';
+      document.title = 'Capítulos de ' + bk.name + ' — Profecias';
 
       var head = document.getElementById('grid-head');
       head.appendChild(el('p', { class: 'eyebrow', text: 'O livro inteiro' }));
