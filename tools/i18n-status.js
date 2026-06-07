@@ -23,7 +23,7 @@ function block(title, arr) {
   return '\n### ' + title + ' (' + arr.length + ')\n' + arr.sort().map(function (s) { return '- ' + s; }).join('\n') + '\n';
 }
 
-var out = '## Status das traduções (PT → EN/ES/JA)\n';
+var out = '## Status das traduções (PT → ' + C.LANGS.join('/').toUpperCase() + ')\n';
 out += '\n- Em dia: **' + fresh + '**  ·  Faltando: **' + missing.length + '**  ·  Desatualizadas: **' + stale.length + '**\n';
 out += block('Faltando (sem arquivo de tradução)', missing);
 out += block('Desatualizadas (PT mudou após traduzir)', stale);

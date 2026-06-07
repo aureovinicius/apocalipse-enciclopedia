@@ -4,7 +4,15 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const ROOT = path.join(__dirname, '..');
-const LANGS = ['en', 'es', 'ja'];
+// Idiomas = subpastas de data/apocalipse/ que não sejam 'chapters'/'themes'
+const LANGS = (function () {
+  var d = path.join(ROOT, 'data', 'apocalipse');
+  try {
+    return fs.readdirSync(d).filter(function (n) {
+      return n !== 'chapters' && n !== 'themes' && fs.statSync(path.join(d, n)).isDirectory();
+    });
+  } catch (e) { return ['en', 'es', 'ja']; }
+})();
 
 function loadObj(file) {
   globalThis.window = { APOC: { _o: null, register: function (t, o) { this._o = o; } } };

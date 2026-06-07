@@ -216,6 +216,7 @@
   ];
 
   var SUPPORTED = ['pt', 'en', 'es', 'ja'];
+  var DIR = { pt: 'ltr', en: 'ltr', es: 'ltr', ja: 'ltr' };
 
   function detectLang() {
     var fromUrl = (new RegExp('[?&]lang=([^&]*)').exec(location.search) || [])[1];
@@ -227,6 +228,27 @@
 
   APOC.langs = LANGS;
   APOC.lang = detectLang();
+  APOC.dirFor = function () { return DIR[APOC.lang] || 'ltr'; };
+
+  /* Registra um novo idioma a partir de um arquivo data/lang/<code>.js.
+     def: { flag, label, dir, str, tradName, methodName, familyName, methodDesc, tradBlurb, tags, books } */
+  APOC.addLang = function (code, def) {
+    def = def || {};
+    STR[code] = def.str || {};
+    if (def.tradName) TRAD_NAME[code] = def.tradName;
+    if (def.methodName) METHOD_NAME[code] = def.methodName;
+    if (def.familyName) FAMILY_NAME[code] = def.familyName;
+    if (def.methodDesc) METHOD_DESC[code] = def.methodDesc;
+    if (def.tradBlurb) TRAD_BLURB[code] = def.tradBlurb;
+    if (def.tags) { APOC.tagI18n = APOC.tagI18n || {}; APOC.tagI18n[code] = def.tags; }
+    if (def.books) Object.keys(def.books).forEach(function (slug) {
+      if (BOOKS[slug]) { BOOKS[slug].name[code] = def.books[slug].name; BOOKS[slug].blurb[code] = def.books[slug].blurb; }
+    });
+    DIR[code] = def.dir || 'ltr';
+    if (SUPPORTED.indexOf(code) < 0) SUPPORTED.push(code);
+    LANGS.push({ code: code, flag: def.flag, label: def.label });
+    APOC.lang = detectLang(); // re-detecta agora que o idioma é suportado
+  };
 
   APOC.t = function (key, params) {
     var dict = STR[APOC.lang] || STR.pt;

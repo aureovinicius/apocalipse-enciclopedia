@@ -186,7 +186,10 @@
 
   /* Traduz elementos estáticos marcados com data-i18n / data-i18n-ph */
   function applyI18n() {
-    try { document.documentElement.lang = (APOC.lang === 'pt' ? 'pt-BR' : APOC.lang); } catch (e) {}
+    try {
+      document.documentElement.lang = (APOC.lang === 'pt' ? 'pt-BR' : APOC.lang);
+      document.documentElement.dir = APOC.dirFor ? APOC.dirFor() : 'ltr';
+    } catch (e) {}
     [].forEach.call(document.querySelectorAll('[data-i18n]'), function (n) { n.textContent = t(n.getAttribute('data-i18n')); });
     [].forEach.call(document.querySelectorAll('[data-i18n-ph]'), function (n) { n.setAttribute('placeholder', t(n.getAttribute('data-i18n-ph'))); });
   }
