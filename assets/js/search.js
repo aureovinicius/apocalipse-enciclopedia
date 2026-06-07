@@ -47,7 +47,7 @@
 
     var q = getParam('q') || '';
     var tag = getParam('tag') || '';
-    var index = APOC.index || [];
+    var index = APOC.getIndex ? APOC.getIndex() : (APOC.index || []);
 
     // Caixa de busca da própria página
     var input = el('input', { type: 'search', placeholder: t('search_ph'), value: q, 'aria-label': t('search_btn') });

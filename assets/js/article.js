@@ -255,6 +255,22 @@
     ]));
   }
 
+  /* Carrega um arquivo de dados tentando o idioma atual (data/<livro>/<lang>/...)
+     e, se não houver tradução, cai no PT (data/<livro>/.../) — marcando fallback. */
+  function loadData(book, kind, key, cb) {
+    var lang = APOC.lang || 'pt';
+    var ptPath = 'data/' + book + (kind === 'chapter' ? '/chapters/cap-' + key + '.js' : '/themes/' + key + '.js');
+    var trPath = 'data/' + book + '/' + lang + (kind === 'chapter' ? '/cap-' + key + '.js' : '/themes/' + key + '.js');
+    function get(l) { return kind === 'chapter' ? APOC.getChapter(book, key, l) : APOC.getTheme(book, key, l); }
+    function loadPt() { APOC._loadingBook = book; APOC.ui.loadScript(ptPath, function (ok) { cb(ok ? get('pt') : null, lang !== 'pt'); }); }
+    if (lang === 'pt') { loadPt(); return; }
+    APOC._loadingBook = book;
+    APOC.ui.loadScript(trPath, function (ok) {
+      var d = ok ? get(lang) : null;
+      if (d) cb(d, false); else loadPt();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var type = window.ARTICLE_TYPE || 'chapter';
     var mount = document.getElementById('article-root');
@@ -268,12 +284,10 @@
     if (type === 'chapter') {
       var id = parseInt(getParam('cap'), 10);
       if (!id || id < 1 || id > total) { notFound(mount, 'Capítulo inválido. <a href="capitulos.html?livro=' + book + '">Ver índice de capítulos</a>.'); return; }
-      APOC._loadingBook = book;
-      APOC.ui.loadScript('data/' + book + '/chapters/cap-' + id + '.js', function (ok) {
-        var data = APOC.getChapter(book, id);
-        if (!ok || !data) { notFound(mount, 'Não foi possível carregar o capítulo ' + id + '.'); return; }
+      loadData(book, 'chapter', id, function (data, fallback) {
+        if (!data) { notFound(mount, 'Não foi possível carregar o capítulo ' + id + '.'); return; }
         renderHead(mount, data, 'chapter');
-        contentNote(mount);
+        if (fallback) contentNote(mount);
         buildIntro(mount, data);
         buildExplore(mount, data, 'chapter');
         buildChapterNav(mount, book, id, total);
@@ -282,12 +296,10 @@
     } else {
       var s = getParam('slug');
       if (!s) { notFound(mount, 'Tema não especificado. <a href="tematicos.html?livro=' + book + '">Ver temáticos</a>.'); return; }
-      APOC._loadingBook = book;
-      APOC.ui.loadScript('data/' + book + '/themes/' + s + '.js', function (ok) {
-        var data = APOC.getTheme(book, s);
-        if (!ok || !data) { notFound(mount, 'Não foi possível carregar o tema solicitado.'); return; }
+      loadData(book, 'theme', s, function (data, fallback) {
+        if (!data) { notFound(mount, 'Não foi possível carregar o tema solicitado.'); return; }
         renderHead(mount, data, 'theme');
-        contentNote(mount);
+        if (fallback) contentNote(mount);
         buildIntro(mount, data);
         buildExplore(mount, data, 'theme');
         mount.appendChild(el('div', { class: 'container' }, [el('div', { class: 'article-nav' }, [

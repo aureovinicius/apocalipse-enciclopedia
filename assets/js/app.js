@@ -8,20 +8,40 @@
 
   window.APOC = window.APOC || {};
   var APOC = window.APOC;
-  APOC.chapters = APOC.chapters || {}; // { livro: { id: obj } }
-  APOC.themes = APOC.themes || {};     // { livro: { slug: obj } }
+  APOC.chapters = APOC.chapters || {};  // pt: { livro: { id: obj } }
+  APOC.themes = APOC.themes || {};      // pt: { livro: { slug: obj } }
+  APOC.chaptersT = APOC.chaptersT || {}; // traduções: { lang: { livro: { id: obj } } }
+  APOC.themesT = APOC.themesT || {};     // traduções: { lang: { livro: { slug: obj } } }
 
-  /* Registro chamado pelos arquivos de dados em data/<livro>/.
-     O livro vem do próprio objeto (campo `book`) ou de APOC._loadingBook,
-     definido pelo carregador antes de injetar o script. */
+  /* Registro chamado pelos arquivos de dados em data/<livro>/ (PT) e
+     data/<livro>/<lang>/ (traduções; o objeto traz `lang`). O livro vem de
+     `obj.book` ou de APOC._loadingBook. */
   APOC.register = function (type, obj) {
     var book = obj.book || APOC._loadingBook || 'apocalipse';
     obj.book = book;
-    if (type === 'chapter') { (APOC.chapters[book] = APOC.chapters[book] || {})[obj.id] = obj; }
-    else if (type === 'theme') { (APOC.themes[book] = APOC.themes[book] || {})[obj.slug] = obj; }
+    var lang = obj.lang || 'pt';
+    if (lang === 'pt') {
+      if (type === 'chapter') { (APOC.chapters[book] = APOC.chapters[book] || {})[obj.id] = obj; }
+      else if (type === 'theme') { (APOC.themes[book] = APOC.themes[book] || {})[obj.slug] = obj; }
+    } else {
+      var root = type === 'chapter' ? (APOC.chaptersT[lang] = APOC.chaptersT[lang] || {}) : (APOC.themesT[lang] = APOC.themesT[lang] || {});
+      var bucket = root[book] = root[book] || {};
+      bucket[type === 'chapter' ? obj.id : obj.slug] = obj;
+    }
   };
-  APOC.getChapter = function (book, id) { return (APOC.chapters[book] || {})[id] || null; };
-  APOC.getTheme = function (book, slug) { return (APOC.themes[book] || {})[slug] || null; };
+  APOC.getChapter = function (book, id, lang) {
+    if (lang && lang !== 'pt') { var t = (((APOC.chaptersT[lang] || {})[book]) || {})[id]; if (t) return t; }
+    return (APOC.chapters[book] || {})[id] || null;
+  };
+  APOC.getTheme = function (book, slug, lang) {
+    if (lang && lang !== 'pt') { var t = (((APOC.themesT[lang] || {})[book]) || {})[slug]; if (t) return t; }
+    return (APOC.themes[book] || {})[slug] || null;
+  };
+  /* Índice (metadados) localizado: usa APOC['index_<lang>'] se existir, senão PT */
+  APOC.getIndex = function () {
+    var l = APOC.lang || 'pt';
+    return (l !== 'pt' && APOC['index_' + l]) ? APOC['index_' + l] : (APOC.index || []);
+  };
 
   /* ---------- Helpers de DOM ---------- */
   function el(tag, attrs, children) {
@@ -128,7 +148,7 @@
 
   /* ---------- Nuvem de tags (agregada do índice) ---------- */
   function allArticles() {
-    return (APOC.index || []).slice();
+    return (APOC.getIndex ? APOC.getIndex() : (APOC.index || [])).slice();
   }
 
   function tagCounts() {

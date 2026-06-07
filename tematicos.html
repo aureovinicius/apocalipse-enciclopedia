@@ -43,7 +43,7 @@
       head.appendChild(el('p', { text: APOC.t('themes_desc') }));
 
       var grid = document.getElementById('theme-grid');
-      var themes = (APOC.index || []).filter(function (a) { return a.type === 'theme' && a.book === book; });
+      var themes = (APOC.getIndex ? APOC.getIndex() : (APOC.index || [])).filter(function (a) { return a.type === 'theme' && a.book === book; });
       if (!themes.length) {
         document.getElementById('empty-msg').appendChild(el('div', { class: 'notice', html: APOC.t('themes_empty', { book: bookName }) + ' <a href="capitulos.html?livro=' + book + '">' + APOC.t('grid_eyebrow') + '</a>.' }));
         return;

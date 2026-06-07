@@ -43,7 +43,7 @@
       head.appendChild(el('p', { text: APOC.t('grid_desc') }));
 
       var grid = document.getElementById('num-grid');
-      var chapters = (APOC.index || []).filter(function (a) { return a.type === 'chapter' && a.book === book; })
+      var chapters = (APOC.getIndex ? APOC.getIndex() : (APOC.index || [])).filter(function (a) { return a.type === 'chapter' && a.book === book; })
         .sort(function (a, b) { return a.id - b.id; });
       chapters.forEach(function (c) {
         var shortName = c.title.replace(/^[^—-]*[—-]\s*/, '');
@@ -57,7 +57,7 @@
       });
 
       // Link para os temáticos do livro (se houver)
-      var hasThemes = (APOC.index || []).some(function (a) { return a.type === 'theme' && a.book === book; });
+      var hasThemes = (APOC.getIndex ? APOC.getIndex() : (APOC.index || [])).some(function (a) { return a.type === 'theme' && a.book === book; });
       if (hasThemes) {
         document.getElementById('theme-link').appendChild(
           el('a', { class: 'btn', href: 'tematicos.html?livro=' + book }, [el('span', { class: 'card-ico', text: '💡' }), ' ' + APOC.t('grid_themes_btn', { book: bookName })])
