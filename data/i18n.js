@@ -373,9 +373,17 @@
 
   APOC.setLang = function (l) {
     if (SUPPORTED.indexOf(l) < 0) return;
+    if (l === APOC.lang) return;
     try { localStorage.setItem('profecias_lang', l); } catch (e) {}
-    // remove ?lang= da URL para não fixar e recarrega mantendo cap/livro/slug/tag/q
-    var url = location.href.replace(/([?&])lang=[^&]*(&|$)/, function (m, p1, p2) { return p2 ? p1 : ''; }).replace(/[?&]$/, '');
-    location.href = url;
+    // remove ?lang= (deixa o localStorage decidir) e recarrega — mantendo o hash.
+    // Usar reload() garante a recarga mesmo quando a URL só difere pelo #hash.
+    try {
+      var u = new URL(location.href);
+      u.searchParams.delete('lang');
+      if (u.href === location.href) { location.reload(); }
+      else { location.replace(u.href); }
+    } catch (e) {
+      location.reload();
+    }
   };
 })();
