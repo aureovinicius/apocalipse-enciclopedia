@@ -76,6 +76,14 @@ Cards expansíveis por tradição + **filtro por método**, **tabela comparativa
 **busca** e **tags**, botão **Imprimir/Salvar PDF**. (O gráfico de **radar foi removido** —
 não reintroduzir sem pedido.)
 
+## Internacionalização (i18n)
+Seletor de idiomas (bandeiras) no cabeçalho: **pt** (padrão), **en**, **es**, **ja**. Dicionário da
+INTERFACE em `data/i18n.js` (`APOC.t(chave, {params})`, `APOC.bookName/bookBlurb`, `APOC.setLang`).
+Idioma escolhido fica em `localStorage` (`profecias_lang`); `?lang=xx` força. Textos estáticos usam
+`data-i18n` / `data-i18n-ph`; textos dinâmicos usam `APOC.t`. **O CONTEÚDO dos artigos
+(interpretações, intro, ênfase, versículos, nomes de tradição/método) ainda é só PT** — quando o
+idioma não é pt, mostra-se um aviso (`content_note`). Tradução do conteúdo = fase futura.
+
 ## Regras editoriais (conteúdo)
 - Tom **comparativo e neutro** nos cards e na `intro`; descreve cada posição sem atacá-la.
 - **Fontes reais e verificáveis** por interpretação (domínios oficiais de cada tradição). NUNCA

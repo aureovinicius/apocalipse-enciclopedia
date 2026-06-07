@@ -5,17 +5,18 @@
 (function () {
   'use strict';
   var APOC = window.APOC, el = APOC.ui.el, getParam = APOC.ui.getParam, slug = APOC.ui.slugifyTag;
+  function t(k, p) { return APOC.t ? APOC.t(k, p) : k; }
 
   function norm(s) { return (s || '').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
 
-  function bookName(a) { var bk = APOC.bookBySlug ? APOC.bookBySlug(a.book) : null; return bk ? bk.name : ''; }
+  function bookName(a) { return APOC.bookName ? APOC.bookName(a.book) : (a.book || ''); }
   function articleHref(a) {
     var b = a.book || 'apocalipse';
     return a.type === 'theme' ? 'tema.html?livro=' + b + '&slug=' + a.slug : 'artigo.html?livro=' + b + '&cap=' + a.id;
   }
   function typeLabel(a) {
     var bn = bookName(a);
-    return a.type === 'theme' ? (bn ? bn + ' · Temático' : 'Temático') : (bn ? bn + ' ' + a.id : 'Capítulo ' + a.id);
+    return a.type === 'theme' ? (bn ? bn + ' · ' + t('rtype_theme') : t('rtype_theme')) : (bn ? bn + ' ' + a.id : a.id);
   }
 
   function matchQuery(a, q) {
@@ -49,15 +50,15 @@
     var index = APOC.index || [];
 
     // Caixa de busca da própria página
-    var input = el('input', { type: 'search', placeholder: 'Buscar capítulos, temas, tradições…', value: q, 'aria-label': 'Buscar' });
+    var input = el('input', { type: 'search', placeholder: t('search_ph'), value: q, 'aria-label': t('search_btn') });
     var form = el('form', { class: 'searchbox', onsubmit: function (e) { e.preventDefault(); var v = encodeURIComponent(input.value.trim()); location.search = '?q=' + v; } }, [
-      input, el('button', { type: 'submit', text: 'Buscar' })
+      input, el('button', { type: 'submit', text: t('search_btn') })
     ]);
     root.appendChild(el('div', { class: 'container', style: 'margin-bottom:24px' }, [form]));
 
     if (tag) {
       root.appendChild(el('div', { class: 'container active-filter' }, [
-        el('span', { class: 'pill', html: 'Tag: <strong>' + tag + '</strong> &nbsp;<a href="busca.html" title="Limpar">&times;</a>' })
+        el('span', { class: 'pill', html: t('search_tag') + ' <strong>' + tag + '</strong> &nbsp;<a href="busca.html" title="×">&times;</a>' })
       ]));
     }
 
@@ -71,14 +72,15 @@
       return (a.id || 0) - (b.id || 0) || (a.title || '').localeCompare(b.title || '');
     });
 
+    var countText = t('search_count', { n: results.length }) + (q ? ' ' + t('search_for', { q: q }) : '');
     var head = el('div', { class: 'container', style: 'margin-bottom:14px' }, [
-      el('p', { class: 'muted', text: results.length + ' resultado' + (results.length === 1 ? '' : 's') + (q ? ' para “' + q + '”' : '') })
+      el('p', { class: 'muted', text: countText })
     ]);
     root.appendChild(head);
 
     var wrap = el('div', { class: 'container' });
     if (!results.length) {
-      wrap.appendChild(el('div', { class: 'notice', html: 'Nada encontrado. Tente outros termos ou <a href="capitulos.html">navegue pelos capítulos</a>.' }));
+      wrap.appendChild(el('div', { class: 'notice', text: t('search_none') }));
     } else {
       var list = el('div', { class: 'result-list' });
       results.forEach(function (a) { list.appendChild(renderResult(a)); });

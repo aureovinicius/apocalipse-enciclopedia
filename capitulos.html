@@ -26,6 +26,7 @@
   <script src="data/books.js"></script>
   <script src="data/search-index.js"></script>
   <script src="data/icons.js"></script>
+  <script src="data/i18n.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     (function () {
@@ -33,12 +34,13 @@
       var book = getParam('livro') || 'apocalipse';
       var bk = APOC.bookBySlug(book) || APOC.bookBySlug('apocalipse');
       book = bk.slug;
-      document.title = 'Capítulos de ' + bk.name + ' — Profecias';
+      var bookName = APOC.bookName(book);
+      document.title = bookName + ' — Profecias';
 
       var head = document.getElementById('grid-head');
-      head.appendChild(el('p', { class: 'eyebrow', text: 'O livro inteiro' }));
-      head.appendChild(el('h2', {}, [el('span', { class: 'card-ico', text: bk.icon }), document.createTextNode(' ' + bk.name + ' — ' + bk.chapters + ' capítulos')]));
-      head.appendChild(el('p', { text: 'Escolha um número para abrir o artigo comparativo daquele capítulo.' }));
+      head.appendChild(el('p', { class: 'eyebrow', text: APOC.t('grid_eyebrow') }));
+      head.appendChild(el('h2', {}, [el('span', { class: 'card-ico', text: bk.icon }), document.createTextNode(' ' + APOC.t('grid_head', { book: bookName, n: bk.chapters }))]));
+      head.appendChild(el('p', { text: APOC.t('grid_desc') }));
 
       var grid = document.getElementById('num-grid');
       var chapters = (APOC.index || []).filter(function (a) { return a.type === 'chapter' && a.book === book; })
@@ -58,7 +60,7 @@
       var hasThemes = (APOC.index || []).some(function (a) { return a.type === 'theme' && a.book === book; });
       if (hasThemes) {
         document.getElementById('theme-link').appendChild(
-          el('a', { class: 'btn', href: 'tematicos.html?livro=' + book }, [el('span', { class: 'card-ico', text: '💡' }), ' Artigos temáticos de ' + bk.name])
+          el('a', { class: 'btn', href: 'tematicos.html?livro=' + book }, [el('span', { class: 'card-ico', text: '💡' }), ' ' + APOC.t('grid_themes_btn', { book: bookName })])
         );
       }
     })();

@@ -69,10 +69,24 @@
 
   /* ---------- Cabeçalho / Rodapé compartilhados ---------- */
   var NAV = [
-    { href: 'index.html', label: 'Início', icon: '🏠' },
-    { href: 'index.html#livros', label: 'Livros', icon: '📚' },
-    { href: 'sobre.html', label: 'Sobre', icon: '📜' }
+    { href: 'index.html', key: 'nav_inicio', icon: '🏠' },
+    { href: 'index.html#livros', key: 'nav_livros', icon: '📚' },
+    { href: 'sobre.html', key: 'nav_sobre', icon: '📜' }
   ];
+
+  function t(k, p) { return APOC.t ? APOC.t(k, p) : k; }
+
+  function buildLangSwitch() {
+    var current = APOC.lang || 'pt';
+    var btns = (APOC.langs || []).map(function (L) {
+      return el('button', {
+        class: 'lang-btn' + (L.code === current ? ' is-active' : ''),
+        type: 'button', title: L.label, 'aria-label': L.label,
+        onclick: function () { if (APOC.setLang) APOC.setLang(L.code); }
+      }, [el('span', { class: 'lang-flag', text: L.flag })]);
+    });
+    return el('div', { class: 'lang-switch', 'aria-label': 'Idioma / Language' }, btns);
+  }
 
   function buildHeader() {
     var mount = document.getElementById('site-header');
@@ -82,7 +96,7 @@
     var links = NAV.map(function (item) {
       var a = el('a', { href: item.href, class: 'nav-link' }, [
         el('span', { class: 'nav-ico', text: item.icon }),
-        document.createTextNode(' ' + item.label)
+        document.createTextNode(' ' + t(item.key))
       ]);
       if (item.href === here) a.classList.add('is-active');
       return a;
@@ -99,7 +113,7 @@
       onclick: function () { nav.classList.toggle('is-open'); }
     }, [el('span', { html: '&#9776;' })]);
 
-    mount.appendChild(el('div', { class: 'header-inner' }, [brand, toggle, nav]));
+    mount.appendChild(el('div', { class: 'header-inner' }, [brand, nav, buildLangSwitch(), toggle]));
   }
 
   function buildFooter() {
@@ -107,8 +121,8 @@
     if (!mount) return;
     mount.appendChild(el('div', { class: 'footer-inner' }, [
       el('p', { class: 'footer-rule', html: '&#10070; &nbsp; &#10070; &nbsp; &#10070;' }),
-      el('p', { text: 'Apocalipse — enciclopédia comparada das interpretações teológicas do livro do Apocalipse.' }),
-      el('p', { class: 'footer-fine', text: 'Conteúdo de caráter informativo e comparativo. As fontes de cada interpretação são citadas em cada artigo.' })
+      el('p', { text: t('footer_line') }),
+      el('p', { class: 'footer-fine', text: t('footer_fine') })
     ]));
   }
 
@@ -150,7 +164,16 @@
   /* expõe helpers */
   APOC.ui = { el: el, getParam: getParam, loadScript: loadScript, roman: roman, slugifyTag: slugifyTag, allArticles: allArticles };
 
+  /* Traduz elementos estáticos marcados com data-i18n / data-i18n-ph */
+  function applyI18n() {
+    try { document.documentElement.lang = (APOC.lang === 'pt' ? 'pt-BR' : APOC.lang); } catch (e) {}
+    [].forEach.call(document.querySelectorAll('[data-i18n]'), function (n) { n.textContent = t(n.getAttribute('data-i18n')); });
+    [].forEach.call(document.querySelectorAll('[data-i18n-ph]'), function (n) { n.setAttribute('placeholder', t(n.getAttribute('data-i18n-ph'))); });
+  }
+  APOC.applyI18n = applyI18n;
+
   document.addEventListener('DOMContentLoaded', function () {
+    applyI18n();
     buildHeader();
     buildFooter();
     buildTagCloud('tag-cloud');

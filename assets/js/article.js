@@ -6,6 +6,8 @@
 (function () {
   'use strict';
   var APOC = window.APOC, el = APOC.ui.el, getParam = APOC.ui.getParam, slug = APOC.ui.slugifyTag;
+  function t(k, p) { return APOC.t ? APOC.t(k, p) : k; }
+  function bookNameOf(slugId) { return APOC.bookName ? APOC.bookName(slugId) : slugId; }
 
   function methodMeta(id) { return APOC.methodById(id) || { id: id, name: id, color: '#999' }; }
   function tradMeta(id) { return APOC.traditionById(id) || { id: id, name: id, color: '#999' }; }
@@ -15,22 +17,21 @@
 
   /* ---------- Cabeçalho do artigo ---------- */
   function renderHead(mount, data, type) {
-    var bk = APOC.bookBySlug ? APOC.bookBySlug(data.book) : null;
-    var bookName = bk ? bk.name : 'Apocalipse';
+    var bookName = bookNameOf(data.book);
 
     var kicker = type === 'chapter'
-      ? bookName + ' · Capítulo ' + data.id + ' · ' + APOC.ui.roman(data.id)
-      : bookName + ' · Artigo Temático';
+      ? t('kicker_chapter', { book: bookName, n: data.id, roman: APOC.ui.roman(data.id) })
+      : t('kicker_theme', { book: bookName });
 
-    var tags = el('div', { class: 'article-tags' }, (data.tags || []).map(function (t) {
-      return el('a', { class: 'tag-chip', href: 'busca.html?tag=' + slug(t), text: t });
+    var tags = el('div', { class: 'article-tags' }, (data.tags || []).map(function (tg) {
+      return el('a', { class: 'tag-chip', href: 'busca.html?tag=' + slug(tg), text: tg });
     }));
 
     var printBtn = el('button', { class: 'btn btn-gold', type: 'button', onclick: function () { window.print(); } },
-      [el('span', { html: '&#128424;' }), 'Imprimir / Salvar PDF']);
+      [el('span', { html: '&#128424;' }), t('article_print')]);
 
     var backHref = (type === 'chapter' ? 'capitulos.html?livro=' : 'tematicos.html?livro=') + data.book;
-    var backLbl = type === 'chapter' ? '&larr; Capítulos de ' + bookName : '&larr; Temáticos de ' + bookName;
+    var backLbl = type === 'chapter' ? t('back_chapters', { book: bookName }) : t('back_themes', { book: bookName });
 
     var headIcon = type === 'chapter'
       ? (APOC.iconForChapter ? APOC.iconForChapter(data.book, data.id) : '')
@@ -44,7 +45,7 @@
         document.createTextNode((headIcon ? ' ' : '') + data.title)
       ]),
       data.summary ? el('p', { class: 'summary', text: data.summary }) : null,
-      type === 'theme' && data.chapters ? el('p', { class: 'muted', html: 'Baseado em ' + data.chapters.map(function (c) { return '<a href="artigo.html?livro=' + data.book + '&cap=' + c + '">' + bookName + ' ' + c + '</a>'; }).join(', ') }) : null,
+      type === 'theme' && data.chapters ? el('p', { class: 'muted', html: t('based_on') + ' ' + data.chapters.map(function (c) { return '<a href="artigo.html?livro=' + data.book + '&cap=' + c + '">' + bookName + ' ' + c + '</a>'; }).join(', ') }) : null,
       tags,
       el('div', { class: 'article-meta' }, [printBtn])
     ]));
@@ -70,7 +71,7 @@
 
     if (data.intro) {
       var body = el('div', { class: 'intro-body' });
-      body.appendChild(el('p', { class: 'intro-eyebrow', text: 'O panorama das interpretações' }));
+      body.appendChild(el('p', { class: 'intro-eyebrow', text: t('intro_eyebrow') }));
       splitParas(data.intro).forEach(function (p) { body.appendChild(el('p', { text: p })); });
       wrap.appendChild(body);
     }
@@ -79,7 +80,7 @@
       var box = el('div', { class: 'adventist-emphasis' });
       box.appendChild(el('h3', { class: 'ae-title' }, [
         el('span', { class: 'ae-ico', text: '📅' }),
-        document.createTextNode(' Em destaque: a leitura adventista do sétimo dia')
+        document.createTextNode(' ' + t('adventist_title'))
       ]));
       splitParas(data.adventistEmphasis).forEach(function (p) { box.appendChild(el('p', { text: p })); });
       wrap.appendChild(box);
@@ -90,14 +91,23 @@
 
   function skeletonNotice() {
     return el('div', { class: 'container' }, [
-      el('div', { class: 'skeleton-flag', html: '&#9998; <strong>Em pesquisa.</strong> As interpretações deste artigo, com fontes citadas, estão sendo redigidas e serão publicadas em breve.' })
+      el('div', { class: 'skeleton-flag' }, [el('span', { html: '&#9998; ' }), document.createTextNode(t('skeleton'))])
     ]);
+  }
+
+  /* Aviso: conteúdo ainda em português quando o idioma é outro */
+  function contentNote(mount) {
+    if (APOC.lang && APOC.lang !== 'pt' && t('content_note')) {
+      mount.appendChild(el('div', { class: 'container', style: 'margin-top:14px' }, [
+        el('div', { class: 'notice', style: 'margin:0', text: t('content_note') })
+      ]));
+    }
   }
 
   /* ---------- Painel 1: Cards expansíveis + filtro por método ---------- */
   function buildCardsPanel(interps) {
     var panel = el('div', { class: 'explore-panel panel-cards is-active' });
-    panel.appendChild(el('p', { class: 'explore-section-title', text: 'Interpretações por tradição' }));
+    panel.appendChild(el('p', { class: 'explore-section-title', text: t('article_cards_title') }));
 
     var methodsUsed = {};
     interps.forEach(function (i) { methodsUsed[i.method] = true; });
@@ -107,25 +117,25 @@
 
     var list = el('div', { class: 'interp-list' });
     var cards = interps.map(function (i) {
-      var t = tradMeta(i.tradition), m = methodMeta(i.method);
+      var tr = tradMeta(i.tradition), m = methodMeta(i.method);
       var body = el('div', { class: 'interp-body' }, [
         el('p', { class: 'first-letter', text: i.text || '' })
       ]);
       if (i.sources && i.sources.length) {
         body.appendChild(el('div', { class: 'sources' }, [
-          el('h4', { text: 'Fontes' }),
+          el('h4', { text: t('article_sources') }),
           el('ol', {}, i.sources.map(function (s) {
             return el('li', {}, [s.url ? el('a', { href: s.url, target: '_blank', rel: 'noopener', text: s.title || s.url }) : el('span', { text: s.title })]);
           }))
         ]));
       }
-      var emblemIcon = APOC.iconForTradition ? APOC.iconForTradition(i.tradition) : initials(t.name);
+      var emblemIcon = APOC.iconForTradition ? APOC.iconForTradition(i.tradition) : initials(tr.name);
       var card = el('div', { class: 'interp', 'data-method': i.method }, [
         el('button', { class: 'interp-summary', type: 'button', onclick: function () { card.classList.toggle('is-open'); } }, [
-          el('span', { class: 'interp-emblem', style: 'background:' + t.color, text: emblemIcon }),
+          el('span', { class: 'interp-emblem', style: 'background:' + tr.color, text: emblemIcon }),
           el('span', { class: 'interp-titles' }, [
-            el('span', { class: 'interp-name', text: t.name }),
-            el('span', { class: 'interp-method', html: '<span class="mtag">' + m.name + '</span>' + (t.family ? ' · ' + t.family : '') })
+            el('span', { class: 'interp-name', text: tr.name }),
+            el('span', { class: 'interp-method', html: '<span class="mtag">' + m.name + '</span>' + (tr.family ? ' · ' + tr.family : '') })
           ]),
           el('span', { class: 'interp-chev', html: '&#9656;' })
         ]),
@@ -158,14 +168,14 @@
   /* ---------- Painel 2: Tabela comparativa ---------- */
   function buildTablePanel(interps) {
     var panel = el('div', { class: 'explore-panel panel-table' });
-    panel.appendChild(el('p', { class: 'explore-section-title', text: 'Tabela comparativa' }));
+    panel.appendChild(el('p', { class: 'explore-section-title', text: t('article_table_title') }));
 
     var rows = interps.map(function (i) {
-      var t = tradMeta(i.tradition), m = methodMeta(i.method);
-      return { trad: t.name, family: t.family || '', method: m.name, mcolor: m.color, stance: i.stance || '—' };
+      var tr = tradMeta(i.tradition), m = methodMeta(i.method);
+      return { trad: tr.name, family: tr.family || '', method: m.name, mcolor: m.color, stance: i.stance || '—' };
     });
 
-    var headers = [['trad', 'Tradição'], ['family', 'Família'], ['method', 'Método'], ['stance', 'Postura-chave']];
+    var headers = [['trad', t('th_trad')], ['family', t('th_family')], ['method', t('th_method')], ['stance', t('th_stance')]];
     var sortState = { key: null, dir: 1 };
     var tbody = el('tbody');
 
@@ -192,7 +202,7 @@
 
     draw();
     panel.appendChild(el('div', { class: 'table-wrap' }, [el('table', { class: 'compare' }, [thead, tbody])]));
-    panel.appendChild(el('p', { class: 'muted', style: 'margin-top:10px;font-size:.85rem', text: 'Clique nos títulos das colunas para ordenar.' }));
+    panel.appendChild(el('p', { class: 'muted', style: 'margin-top:10px;font-size:.85rem', text: t('article_table_hint') }));
     return panel;
   }
 
@@ -211,7 +221,7 @@
       table: buildTablePanel(interps)
     };
 
-    var tabsDef = [['cards', '&#9707; Cards'], ['table', '&#9783; Tabela']];
+    var tabsDef = [['cards', '&#9707; ' + t('tab_cards')], ['table', '&#9783; ' + t('tab_table')]];
     var tabBtns = {};
     var tabs = el('div', { class: 'explore-tabs' }, tabsDef.map(function (d) {
       var b = el('button', { class: 'explore-tab' + (d[0] === 'cards' ? ' is-active' : ''), type: 'button', html: d[1], onclick: function () {
@@ -231,9 +241,9 @@
   /* ---------- Navegação prev/next (capítulos) ---------- */
   function buildChapterNav(mount, book, id, total) {
     var nav = el('div', { class: 'container' }, [el('div', { class: 'article-nav' }, [
-      id > 1 ? el('a', { href: 'artigo.html?livro=' + book + '&cap=' + (id - 1), html: '&larr; Capítulo ' + (id - 1) }) : el('span'),
-      el('a', { href: 'capitulos.html?livro=' + book, html: 'Índice &#10070;' }),
-      id < total ? el('a', { href: 'artigo.html?livro=' + book + '&cap=' + (id + 1), html: 'Capítulo ' + (id + 1) + ' &rarr;' }) : el('span')
+      id > 1 ? el('a', { href: 'artigo.html?livro=' + book + '&cap=' + (id - 1), text: t('nav_prev', { n: id - 1 }) }) : el('span'),
+      el('a', { href: 'capitulos.html?livro=' + book, html: t('nav_index') + ' &#10070;' }),
+      id < total ? el('a', { href: 'artigo.html?livro=' + book + '&cap=' + (id + 1), text: t('nav_next', { n: id + 1 }) }) : el('span')
     ])]);
     mount.appendChild(nav);
   }
@@ -263,6 +273,7 @@
         var data = APOC.getChapter(book, id);
         if (!ok || !data) { notFound(mount, 'Não foi possível carregar o capítulo ' + id + '.'); return; }
         renderHead(mount, data, 'chapter');
+        contentNote(mount);
         buildIntro(mount, data);
         buildExplore(mount, data, 'chapter');
         buildChapterNav(mount, book, id, total);
@@ -276,11 +287,12 @@
         var data = APOC.getTheme(book, s);
         if (!ok || !data) { notFound(mount, 'Não foi possível carregar o tema solicitado.'); return; }
         renderHead(mount, data, 'theme');
+        contentNote(mount);
         buildIntro(mount, data);
         buildExplore(mount, data, 'theme');
         mount.appendChild(el('div', { class: 'container' }, [el('div', { class: 'article-nav' }, [
-          el('a', { href: 'tematicos.html?livro=' + book, html: '&larr; Temáticos de ' + bk.name }),
-          el('a', { href: 'capitulos.html?livro=' + book, html: 'Capítulos &#10070;' })
+          el('a', { href: 'tematicos.html?livro=' + book, text: t('back_themes', { book: bookNameOf(book) }) }),
+          el('a', { href: 'capitulos.html?livro=' + book, html: t('nav_livros') + ' &#10070;' })
         ])]));
         document.title = data.title + ' — Profecias';
       });

@@ -15,11 +15,11 @@
     <section class="hero">
       <div class="container">
         <h1 class="title-xl">Profecias</h1>
-        <p class="subtitle">As Escrituras proféticas — Apocalipse, Daniel e mais — lidas por mais de quinze tradições, capítulo a capítulo.</p>
+        <p class="subtitle" data-i18n="hero_subtitle">As Escrituras proféticas — Apocalipse, Daniel e mais — lidas por mais de quinze tradições, capítulo a capítulo.</p>
 
         <form class="searchbox" id="home-search" role="search" aria-label="Buscar no site">
-          <input type="search" id="home-q" name="q" placeholder="Buscar capítulos, temas ou tradições…" aria-label="Buscar">
-          <button type="submit">Buscar</button>
+          <input type="search" id="home-q" name="q" placeholder="Buscar capítulos, temas ou tradições…" data-i18n-ph="search_ph" aria-label="Buscar">
+          <button type="submit" data-i18n="search_btn">Buscar</button>
         </form>
       </div>
     </section>
@@ -29,9 +29,9 @@
     <section class="section" id="livros">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Escolha um livro</p>
-          <h2>Livros da Bíblia</h2>
-          <p>Cada livro tem seus capítulos analisados lado a lado por mais de quinze tradições, com fontes citadas.</p>
+          <p class="eyebrow" data-i18n="books_eyebrow">Escolha um livro</p>
+          <h2 data-i18n="books_title">Livros da Bíblia</h2>
+          <p data-i18n="books_desc">Cada livro tem seus capítulos analisados lado a lado por mais de quinze tradições, com fontes citadas.</p>
         </div>
         <div class="card-grid" id="books-grid"></div>
       </div>
@@ -40,9 +40,9 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Navegue por assunto</p>
-          <h2>Nuvem de tags</h2>
-          <p>Clique em um tema para encontrar todos os artigos relacionados, de qualquer livro.</p>
+          <p class="eyebrow" data-i18n="tags_eyebrow">Navegue por assunto</p>
+          <h2 data-i18n="tags_title">Nuvem de tags</h2>
+          <p data-i18n="tags_desc">Clique em um tema para encontrar todos os artigos relacionados, de qualquer livro.</p>
         </div>
         <div class="tag-cloud" id="tag-cloud"></div>
       </div>
@@ -60,6 +60,7 @@
   </script>
   <script src="data/books.js"></script>
   <script src="data/search-index.js"></script>
+  <script src="data/i18n.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     (function () {
@@ -67,9 +68,9 @@
       var grid = document.getElementById('books-grid');
       (APOC.books || []).slice().sort(function (a, b) { return (a.order || 99) - (b.order || 99); }).forEach(function (b) {
         grid.appendChild(el('a', { class: 'card', href: 'capitulos.html?livro=' + b.slug, style: 'text-decoration:none' }, [
-          el('h3', {}, [el('span', { class: 'card-ico', text: b.icon }), document.createTextNode(' ' + b.name + ' →')]),
-          el('p', { text: b.blurb }),
-          el('div', { class: 'tags' }, [el('span', { class: 'tag-chip', text: b.chapters + ' capítulos' })])
+          el('h3', {}, [el('span', { class: 'card-ico', text: b.icon }), document.createTextNode(' ' + APOC.bookName(b.slug) + ' →')]),
+          el('p', { text: APOC.bookBlurb(b.slug) }),
+          el('div', { class: 'tags' }, [el('span', { class: 'tag-chip', text: APOC.t('n_chapters', { n: b.chapters }) })])
         ]));
       });
     })();
