@@ -80,9 +80,16 @@ não reintroduzir sem pedido.)
 Seletor de idiomas (bandeiras) no cabeçalho: **pt** (padrão), **en**, **es**, **ja**. Dicionário da
 INTERFACE em `data/i18n.js` (`APOC.t(chave, {params})`, `APOC.bookName/bookBlurb`, `APOC.setLang`).
 Idioma escolhido fica em `localStorage` (`profecias_lang`); `?lang=xx` força. Textos estáticos usam
-`data-i18n` / `data-i18n-ph`; textos dinâmicos usam `APOC.t`. **O CONTEÚDO dos artigos
-(interpretações, intro, ênfase, versículos, nomes de tradição/método) ainda é só PT** — quando o
-idioma não é pt, mostra-se um aviso (`content_note`). Tradução do conteúdo = fase futura.
+`data-i18n` / `data-i18n-ph`; textos dinâmicos usam `APOC.t`. Nomes de tradições/métodos/famílias
+localizados via `APOC.tradName/methodName/familyName`.
+
+**Conteúdo dos artigos traduzido nos 4 idiomas** (PT/EN/ES/JA): cada tradução fica em
+`data/<livro>/<lang>/cap-N.js` (e `…/<lang>/themes/<slug>.js`), com `lang` no objeto. O loader em
+`article.js` tenta o idioma atual e cai no PT (mostrando `content_note`) se faltar. Versículos por
+idioma de domínio público: PT=Almeida, EN=KJV, ES=Reina-Valera, JA=文語訳. As `tags` ficam em PT em
+todos os idiomas (para a busca/nuvem global). Metadados das grades/busca por idioma em
+`data/search-index.<lang>.js` (gerado por `tools/gen-index-lang.js <lang>`). Ao adicionar/editar
+conteúdo, regenerar os índices dos idiomas afetados.
 
 ## Regras editoriais (conteúdo)
 - Tom **comparativo e neutro** nos cards e na `intro`; descreve cada posição sem atacá-la.
