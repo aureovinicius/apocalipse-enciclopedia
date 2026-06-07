@@ -251,13 +251,33 @@
       sud: 'LDS / Mormon', espirita: 'Spiritist (Kardecist)', 'esc-preterista': 'Preterist School',
       'esc-historicista': 'Historicist School', 'esc-futurista': 'Futurist School',
       'esc-idealista': 'Idealist School', 'esc-dispensacionalista': 'Dispensationalist School'
+    },
+    es: {
+      catolica: 'Católica romana', ortodoxa: 'Ortodoxa oriental', luterana: 'Luterana',
+      reformada: 'Calvinista / Reformada', metodista: 'Metodista', evangelica: 'Protestante evangélica',
+      pentecostal: 'Pentecostal', adventista: 'Adventista del Séptimo Día', testemunhas: 'Testigos de Jehová',
+      sud: 'SUD / Mormón', espirita: 'Espírita (kardecista)', 'esc-preterista': 'Escuela preterista',
+      'esc-historicista': 'Escuela historicista', 'esc-futurista': 'Escuela futurista',
+      'esc-idealista': 'Escuela idealista', 'esc-dispensacionalista': 'Escuela dispensacionalista'
+    },
+    ja: {
+      catolica: 'ローマ・カトリック', ortodoxa: '東方正教会', luterana: 'ルター派',
+      reformada: 'カルヴァン派／改革派', metodista: 'メソジスト', evangelica: '福音主義プロテスタント',
+      pentecostal: 'ペンテコステ派', adventista: 'セブンスデー・アドベンチスト', testemunhas: 'エホバの証人',
+      sud: '末日聖徒（モルモン）', espirita: 'スピリティズム（カルデック派）', 'esc-preterista': '過去主義学派',
+      'esc-historicista': '歴史主義学派', 'esc-futurista': '未来主義学派',
+      'esc-idealista': '理念主義学派', 'esc-dispensacionalista': 'ディスペンセーション主義学派'
     }
   };
   var METHOD_NAME = {
-    en: { preterista: 'Preterist', historicista: 'Historicist', futurista: 'Futurist', idealista: 'Idealist / Spiritual', dispensacionalista: 'Dispensationalist' }
+    en: { preterista: 'Preterist', historicista: 'Historicist', futurista: 'Futurist', idealista: 'Idealist / Spiritual', dispensacionalista: 'Dispensationalist' },
+    es: { preterista: 'Preterista', historicista: 'Historicista', futurista: 'Futurista', idealista: 'Idealista / Espiritual', dispensacionalista: 'Dispensacionalista' },
+    ja: { preterista: '過去主義', historicista: '歴史主義', futurista: '未来主義', idealista: '理念主義／霊的', dispensacionalista: 'ディスペンセーション主義' }
   };
   var FAMILY_NAME = {
-    en: { 'Denominação': 'Denomination', 'Escola': 'School', 'Movimento': 'Movement' }
+    en: { 'Denominação': 'Denomination', 'Escola': 'School', 'Movimento': 'Movement' },
+    es: { 'Denominação': 'Denominación', 'Escola': 'Escuela', 'Movimento': 'Movimiento' },
+    ja: { 'Denominação': '教派', 'Escola': '学派', 'Movimento': '運動' }
   };
   APOC.tradName = function (id) {
     var m = TRAD_NAME[APOC.lang]; if (m && m[id]) return m[id];
