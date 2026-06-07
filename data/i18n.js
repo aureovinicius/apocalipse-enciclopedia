@@ -242,6 +242,33 @@
     var b = BOOKS[slug]; return (b && (b.blurb[APOC.lang] || b.blurb.pt)) || '';
   };
 
+  // Nomes localizados de tradições, métodos e famílias (EN; outros idiomas caem no PT)
+  var TRAD_NAME = {
+    en: {
+      catolica: 'Roman Catholic', ortodoxa: 'Eastern Orthodox', luterana: 'Lutheran',
+      reformada: 'Calvinist / Reformed', metodista: 'Methodist', evangelica: 'Evangelical Protestant',
+      pentecostal: 'Pentecostal', adventista: 'Seventh-day Adventist', testemunhas: 'Jehovah’s Witnesses',
+      sud: 'LDS / Mormon', espirita: 'Spiritist (Kardecist)', 'esc-preterista': 'Preterist School',
+      'esc-historicista': 'Historicist School', 'esc-futurista': 'Futurist School',
+      'esc-idealista': 'Idealist School', 'esc-dispensacionalista': 'Dispensationalist School'
+    }
+  };
+  var METHOD_NAME = {
+    en: { preterista: 'Preterist', historicista: 'Historicist', futurista: 'Futurist', idealista: 'Idealist / Spiritual', dispensacionalista: 'Dispensationalist' }
+  };
+  var FAMILY_NAME = {
+    en: { 'Denominação': 'Denomination', 'Escola': 'School', 'Movimento': 'Movement' }
+  };
+  APOC.tradName = function (id) {
+    var m = TRAD_NAME[APOC.lang]; if (m && m[id]) return m[id];
+    var t = APOC.traditionById && APOC.traditionById(id); return (t && t.name) || id;
+  };
+  APOC.methodName = function (id) {
+    var m = METHOD_NAME[APOC.lang]; if (m && m[id]) return m[id];
+    var mm = APOC.methodById && APOC.methodById(id); return (mm && mm.name) || id;
+  };
+  APOC.familyName = function (f) { var m = FAMILY_NAME[APOC.lang]; return (m && m[f]) || f; };
+
   APOC.setLang = function (l) {
     if (SUPPORTED.indexOf(l) < 0) return;
     try { localStorage.setItem('profecias_lang', l); } catch (e) {}

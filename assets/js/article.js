@@ -134,8 +134,8 @@
         el('button', { class: 'interp-summary', type: 'button', onclick: function () { card.classList.toggle('is-open'); } }, [
           el('span', { class: 'interp-emblem', style: 'background:' + tr.color, text: emblemIcon }),
           el('span', { class: 'interp-titles' }, [
-            el('span', { class: 'interp-name', text: tr.name }),
-            el('span', { class: 'interp-method', html: '<span class="mtag">' + m.name + '</span>' + (tr.family ? ' · ' + tr.family : '') })
+            el('span', { class: 'interp-name', text: APOC.tradName(i.tradition) }),
+            el('span', { class: 'interp-method', html: '<span class="mtag">' + APOC.methodName(i.method) + '</span>' + (tr.family ? ' · ' + APOC.familyName(tr.family) : '') })
           ]),
           el('span', { class: 'interp-chev', html: '&#9656;' })
         ]),
@@ -156,7 +156,7 @@
         active[m.id] = !active[m.id];
         pill.classList.toggle('is-off', !active[m.id]);
         applyFilter();
-      } }, [el('span', { class: 'dot', style: 'background:' + m.color }), m.name]);
+      } }, [el('span', { class: 'dot', style: 'background:' + m.color }), APOC.methodName(m.id)]);
       return pill;
     }));
 
@@ -172,7 +172,7 @@
 
     var rows = interps.map(function (i) {
       var tr = tradMeta(i.tradition), m = methodMeta(i.method);
-      return { trad: tr.name, family: tr.family || '', method: m.name, mcolor: m.color, stance: i.stance || '—' };
+      return { trad: APOC.tradName(i.tradition), family: APOC.familyName(tr.family || ''), method: APOC.methodName(i.method), mcolor: m.color, stance: i.stance || '—' };
     });
 
     var headers = [['trad', t('th_trad')], ['family', t('th_family')], ['method', t('th_method')], ['stance', t('th_stance')]];
