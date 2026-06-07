@@ -152,7 +152,7 @@
     }
 
     var filter = el('div', { class: 'method-filter' }, APOC.methods.filter(function (m) { return methodsUsed[m.id]; }).map(function (m) {
-      var pill = el('button', { class: 'method-pill', type: 'button', title: m.desc, onclick: function () {
+      var pill = el('button', { class: 'method-pill', type: 'button', title: (APOC.methodDesc ? APOC.methodDesc(m.id) : m.desc), onclick: function () {
         active[m.id] = !active[m.id];
         pill.classList.toggle('is-off', !active[m.id]);
         applyFilter();
@@ -291,7 +291,7 @@
         buildIntro(mount, data);
         buildExplore(mount, data, 'chapter');
         buildChapterNav(mount, book, id, total);
-        document.title = data.title + ' — Profecias';
+        document.title = data.title + ' — ' + t('site_title');
       });
     } else {
       var s = getParam('slug');
@@ -306,7 +306,7 @@
           el('a', { href: 'tematicos.html?livro=' + book, text: t('back_themes', { book: bookNameOf(book) }) }),
           el('a', { href: 'capitulos.html?livro=' + book, html: t('nav_livros') + ' &#10070;' })
         ])]));
-        document.title = data.title + ' — Profecias';
+        document.title = data.title + ' — ' + t('site_title');
       });
     }
   });

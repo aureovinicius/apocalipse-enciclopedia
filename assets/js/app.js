@@ -125,7 +125,7 @@
     var nav = el('nav', { class: 'site-nav', 'aria-label': 'Navegação principal' }, links);
     var brand = el('a', { href: 'index.html', class: 'brand', 'aria-label': 'Profecias — início' }, [
       el('span', { class: 'brand-ornament', text: '📖' }),
-      el('span', { class: 'brand-name', text: 'Profecias' })
+      el('span', { class: 'brand-name', text: t('site_title') })
     ]);
 
     var toggle = el('button', {

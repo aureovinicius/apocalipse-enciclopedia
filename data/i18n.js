@@ -5,7 +5,7 @@
 
   var STR = {
     pt: {
-      lang_name: 'Português',
+      lang_name: 'Português', site_title: 'Profecias',
       nav_inicio: 'Início', nav_livros: 'Livros', nav_sobre: 'Sobre',
       hero_subtitle: 'As Escrituras proféticas — Apocalipse, Daniel e mais — lidas por mais de quinze tradições, capítulo a capítulo.',
       search_ph: 'Buscar capítulos, temas ou tradições…', search_btn: 'Buscar',
@@ -50,7 +50,7 @@
       about_notice: 'As interpretações sintetizam fontes de cada tradição (documentos eclesiais, comentários e publicações oficiais ou representativas), citadas em cada card. Tradições internamente plurais são apresentadas em suas posições mais difundidas, sem pretender esgotá-las.'
     },
     en: {
-      lang_name: 'English',
+      lang_name: 'English', site_title: 'Prophecies',
       nav_inicio: 'Home', nav_livros: 'Books', nav_sobre: 'About',
       hero_subtitle: 'The prophetic Scriptures — Revelation, Daniel and more — read by over fifteen traditions, chapter by chapter.',
       search_ph: 'Search chapters, topics or traditions…', search_btn: 'Search',
@@ -95,7 +95,7 @@
       about_notice: 'The interpretations summarize sources from each tradition (church documents, commentaries and official or representative publications), cited in each card. Internally diverse traditions are presented in their most widespread positions, without claiming to be exhaustive.'
     },
     es: {
-      lang_name: 'Español',
+      lang_name: 'Español', site_title: 'Profecías',
       nav_inicio: 'Inicio', nav_livros: 'Libros', nav_sobre: 'Acerca de',
       hero_subtitle: 'Las Escrituras proféticas — Apocalipsis, Daniel y más — leídas por más de quince tradiciones, capítulo a capítulo.',
       search_ph: 'Buscar capítulos, temas o tradiciones…', search_btn: 'Buscar',
@@ -140,7 +140,7 @@
       about_notice: 'Las interpretaciones resumen fuentes de cada tradición (documentos eclesiales, comentarios y publicaciones oficiales o representativas), citadas en cada tarjeta. Las tradiciones internamente plurales se presentan en sus posiciones más difundidas, sin pretender agotarlas.'
     },
     ja: {
-      lang_name: '日本語',
+      lang_name: '日本語', site_title: '預言',
       nav_inicio: 'ホーム', nav_livros: '書物', nav_sobre: '概要',
       hero_subtitle: '預言の書 — ヨハネの黙示録、ダニエル書など — を十五以上の伝統が章ごとに読み解きます。',
       search_ph: '章・テーマ・伝統を検索…', search_btn: '検索',
@@ -288,6 +288,88 @@
     var mm = APOC.methodById && APOC.methodById(id); return (mm && mm.name) || id;
   };
   APOC.familyName = function (f) { var m = FAMILY_NAME[APOC.lang]; return (m && m[f]) || f; };
+
+  var METHOD_DESC = {
+    en: {
+      preterista: 'Reads Revelation as referring chiefly to first-century events (Rome/Jerusalem, the persecution under Nero or the fall of Jerusalem in AD 70).',
+      historicista: 'Sees in the book a continuous prophetic panorama of the history of the Church, from the first century to the end of time.',
+      futurista: 'Places most of the visions (especially from Revelation 4 onward) in events still future, tied to the Second Coming.',
+      idealista: 'Understands Revelation as a symbolic, timeless portrait of the conflict between good and evil, with no fixed historical chronology.',
+      dispensacionalista: 'A futurist variant that distinguishes Israel and the Church, with a rapture, a seven-year Great Tribulation, and a literal millennium.'
+    },
+    es: {
+      preterista: 'Lee el Apocalipsis como referido, sobre todo, a sucesos del primer siglo (Roma/Jerusalén, la persecución de Nerón o la caída de Jerusalén en el año 70 d.C.).',
+      historicista: 'Ve en el libro un panorama profético continuo de la historia de la Iglesia, desde el primer siglo hasta el fin de los tiempos.',
+      futurista: 'Sitúa la mayor parte de las visiones (especialmente a partir de Ap 4) en sucesos aún futuros, ligados a la Segunda Venida.',
+      idealista: 'Entiende el Apocalipsis como un retrato simbólico y atemporal del conflicto entre el bien y el mal, sin cronología histórica fija.',
+      dispensacionalista: 'Variante futurista que distingue a Israel y a la Iglesia, con arrebatamiento, Gran Tribulación de siete años y milenio literal.'
+    },
+    ja: {
+      preterista: '黙示録を主に一世紀の出来事（ローマ／エルサレム、ネロによる迫害や紀元七十年のエルサレム陥落）に関するものとして読む立場。',
+      historicista: 'この書を、一世紀から終末に至るまでの教会史の連続的な預言的展望として捉える立場。',
+      futurista: '幻の大部分（特に黙示録四章以降）を、再臨に結びついた、いまだ未来の出来事に位置づける立場。',
+      idealista: '黙示録を、固定された歴史的年代記を持たない、善と悪の闘いの象徴的で超時間的な描写として理解する立場。',
+      dispensacionalista: 'イスラエルと教会を区別する未来主義の一派で、携挙、七年間の大患難、そして文字どおりの千年王国を説く。'
+    }
+  };
+  var TRAD_BLURB = {
+    en: {
+      catolica: 'Magisterium, Augustinian amillennialism, a largely symbolic and Christ-centered reading.',
+      ortodoxa: 'A liturgical and spiritual reading; historic caution toward the book; emphasis on Christ\'s victory.',
+      luterana: 'Classic historicist tradition (the papacy as antichrist in Luther), now plural.',
+      reformada: 'Amillennialism and postmillennialism; frequent partial preterism; strong symbolic emphasis.',
+      metodista: 'Wesleyan heritage; a devotional and moral reading; eschatological plurality.',
+      evangelica: 'A broad evangelical spectrum; predominance of popular futurism and premillennialism.',
+      pentecostal: 'Premillennialism, rapture, and emphasis on the Spirit and the imminence of the Coming.',
+      adventista: 'Classic historicism; investigative judgment; centrality of the Sabbath and the remnant.',
+      testemunhas: 'A distinctive chronology (1914), the kingdom of Jehovah, the 144,000 and the great crowd.',
+      sud: 'Latter-day restoration; a literal-futurist reading and modern revelation.',
+      espirita: 'A moral and allegorical reading; the evolution of the spirit; rejection of a literal eternal judgment.',
+      'esc-preterista': 'Fulfillment in the first century; Rome/Nero and the fall of Jerusalem.',
+      'esc-historicista': 'Continuous prophecy of the history of the Church to the end.',
+      'esc-futurista': 'Visions from Revelation 4 onward yet to be fulfilled, tied to the Second Coming.',
+      'esc-idealista': 'A timeless symbol of the conflict between good and evil.',
+      'esc-dispensacionalista': 'Israel/Church distinct; rapture, seven-year tribulation, literal millennium.'
+    },
+    es: {
+      catolica: 'Magisterio, amilenismo agustiniano, lectura en gran medida simbólica y cristocéntrica.',
+      ortodoxa: 'Lectura litúrgica y espiritual; cautela histórica con el libro; énfasis en la victoria de Cristo.',
+      luterana: 'Tradición historicista clásica (el papado como anticristo en Lutero), hoy plural.',
+      reformada: 'Amilenismo y posmilenismo; preterismo parcial frecuente; fuerte énfasis simbólico.',
+      metodista: 'Herencia wesleyana; lectura devocional y moral; pluralidad escatológica.',
+      evangelica: 'Amplio espectro evangélico; predominio futurista popular y premilenista.',
+      pentecostal: 'Premilenismo, arrebatamiento y énfasis en el Espíritu y en la inminencia de la Venida.',
+      adventista: 'Historicismo clásico; juicio investigador; centralidad del sábado y del remanente.',
+      testemunhas: 'Cronología propia (1914), reino de Jehová, los 144.000 y la gran multitud.',
+      sud: 'Restauración de los últimos días; lectura literal-futurista y revelación moderna.',
+      espirita: 'Lectura moral y alegórica; evolución del espíritu; rechazo del juicio eterno literal.',
+      'esc-preterista': 'Cumplimiento en el primer siglo; Roma/Nerón y la caída de Jerusalén.',
+      'esc-historicista': 'Profecía continua de la historia de la Iglesia hasta el fin.',
+      'esc-futurista': 'Visiones a partir de Ap 4 aún por cumplirse, ligadas a la Segunda Venida.',
+      'esc-idealista': 'Símbolo atemporal del conflicto entre el bien y el mal.',
+      'esc-dispensacionalista': 'Israel/Iglesia distintos; arrebatamiento, tribulación de siete años, milenio literal.'
+    },
+    ja: {
+      catolica: '教導職、アウグスティヌス的無千年王国説、おおむね象徴的でキリスト中心的な読み方。',
+      ortodoxa: '典礼的・霊的な読み方。この書に対する歴史的な慎重さ。キリストの勝利を強調する。',
+      luterana: '古典的な歴史主義の伝統（ルターにおいては教皇職を反キリストとみなす）。現在は多様化している。',
+      reformada: '無千年王国説と後千年王国説。しばしば部分的過去主義をとる。強い象徴的強調。',
+      metodista: 'ウェスレー的遺産。信仰的・道徳的な読み方。終末論的な多様性。',
+      evangelica: '幅広い福音派の立場。大衆的な未来主義と前千年王国説が優勢。',
+      pentecostal: '前千年王国説、携挙、そして御霊と再臨の切迫性への強調。',
+      adventista: '古典的歴史主義。調査審判。安息日と残りの者の中心性。',
+      testemunhas: '独自の年代計算（一九一四年）、エホバの王国、十四万四千人と大群衆。',
+      sud: '末日の回復。文字どおりの未来主義的な読み方と現代の啓示。',
+      espirita: '道徳的・寓意的な読み方。霊の進化。文字どおりの永遠の審判の否定。',
+      'esc-preterista': '一世紀における成就。ローマ／ネロとエルサレムの陥落。',
+      'esc-historicista': '終末に至るまでの教会史の連続的な預言。',
+      'esc-futurista': '再臨に結びついた、黙示録四章以降のいまだ成就していない幻。',
+      'esc-idealista': '善と悪の闘いの超時間的な象徴。',
+      'esc-dispensacionalista': 'イスラエルと教会を区別する。携挙、七年間の患難、文字どおりの千年王国。'
+    }
+  };
+  APOC.methodDesc = function (id) { var m = METHOD_DESC[APOC.lang]; if (m && m[id]) return m[id]; var mm = APOC.methodById && APOC.methodById(id); return (mm && mm.desc) || ''; };
+  APOC.tradBlurb = function (id) { var m = TRAD_BLURB[APOC.lang]; if (m && m[id]) return m[id]; var t = APOC.traditionById && APOC.traditionById(id); return (t && t.blurb) || ''; };
 
   APOC.setLang = function (l) {
     if (SUPPORTED.indexOf(l) < 0) return;

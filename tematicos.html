@@ -38,7 +38,7 @@
       var bk = APOC.bookBySlug(book) || APOC.bookBySlug('apocalipse');
       book = bk.slug;
       var bookName = APOC.bookName(book);
-      document.title = bookName + ' — Profecias';
+      document.title = bookName + ' — ' + APOC.t('site_title');
 
       var head = document.getElementById('theme-head');
       head.appendChild(el('p', { class: 'eyebrow', text: APOC.t('themes_eyebrow') }));

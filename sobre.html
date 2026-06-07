@@ -57,7 +57,7 @@
       APOC.methods.forEach(function (m) {
         mm.appendChild(el('div', { class: 'card' }, [
           el('h3', {}, [el('span', { style: 'display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;background:' + m.color }), document.createTextNode(APOC.methodName ? APOC.methodName(m.id) : m.name)]),
-          el('p', { text: m.desc })
+          el('p', { text: APOC.methodDesc ? APOC.methodDesc(m.id) : m.desc })
         ]));
       });
       var tm = document.getElementById('trads-mount');
@@ -65,7 +65,7 @@
         var ico = APOC.iconForTradition ? APOC.iconForTradition(t.id) : '✦';
         tm.appendChild(el('div', { class: 'card' }, [
           el('h3', {}, [el('span', { class: 'card-ico', style: 'background:' + t.color, text: ico }), document.createTextNode(' ' + (APOC.tradName ? APOC.tradName(t.id) : t.name))]),
-          el('p', { text: t.blurb }),
+          el('p', { text: APOC.tradBlurb ? APOC.tradBlurb(t.id) : t.blurb }),
           el('div', { class: 'tags' }, [el('span', { class: 'tag-chip', text: APOC.familyName ? APOC.familyName(t.family) : t.family })])
         ]));
       });
