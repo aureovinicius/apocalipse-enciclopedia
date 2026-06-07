@@ -63,7 +63,7 @@ Rotas com o livro no parâmetro: `artigo.html?livro=<slug>&cap=N`, `tema.html?li
 1. Mover `data/chapters` e `data/themes` para `data/apocalipse/…` e adicionar `book: 'apocalipse'`.
 2. Criar `data/books.js` com o registro de livros.
 3. Generalizar `article.js`/grades para ler o parâmetro `livro`.
-4. Transformar a home em vitrine de livros; manter `comparar.html`/`sobre.html` globais.
+4. Transformar a home em vitrine de livros; manter `sobre.html` global.
 5. Atualizar `search-index.js` com o campo `book`.
 
 ## Git

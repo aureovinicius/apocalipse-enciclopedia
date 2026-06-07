@@ -24,7 +24,7 @@ mesmo padrão (ver "Expansão" e `docs/CLAUDE-modelo-multilivros.md`).
 - Páginas: `index.html` (home: **vitrine de livros** + busca + nuvem de tags global),
   `capitulos.html?livro=<slug>` (grade de capítulos do livro), `artigo.html?livro=<slug>&cap=N`,
   `tematicos.html?livro=<slug>`, `tema.html?livro=<slug>&slug=...`, `busca.html` (`?q=` / `?tag=`,
-  global a todos os livros), `comparar.html` (tabela comparativa global), `sobre.html`.
+  global a todos os livros), `sobre.html`.
   (Rotas sem `?livro=` assumem `apocalipse`, mantendo compatibilidade.)
 - `assets/js/`: `app.js` (núcleo/registro por livro/menu/nuvem de tags), `article.js`
   (roteamento por livro, cards+filtro e tabela), `search.js` (busca client-side).

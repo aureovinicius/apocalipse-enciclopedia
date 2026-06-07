@@ -71,7 +71,6 @@
   var NAV = [
     { href: 'index.html', label: 'Início', icon: '🏠' },
     { href: 'index.html#livros', label: 'Livros', icon: '📚' },
-    { href: 'comparar.html', label: 'Comparar', icon: '📊' },
     { href: 'sobre.html', label: 'Sobre', icon: '📜' }
   ];
 

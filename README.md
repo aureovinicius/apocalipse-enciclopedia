@@ -24,7 +24,6 @@ arquivos `.js` que se registram em `window.APOC` (sem `fetch`).
 - `tematicos.html` — cards dos artigos temáticos → `tema.html?slug=...`.
 - `artigo.html` / `tema.html` — template de artigo (capítulo / temático).
 - `busca.html` — busca por texto (`?q=`) e filtro por tag (`?tag=`).
-- `comparar.html` — tabela comparativa das tendências de cada tradição.
 - `sobre.html` — metodologia, glossário das escolas e tradições.
 - `assets/css/` — `styles.css` (tema) e `print.css` (impressão/PDF).
 - `assets/js/` — `app.js` (núcleo/menu), `article.js` (cards+filtro, tabela),
