@@ -8,7 +8,7 @@
   var APOC = window.APOC, el = APOC.ui.el, getParam = APOC.ui.getParam, slug = APOC.ui.slugifyTag;
 
   function methodMeta(id) { return APOC.methodById(id) || { id: id, name: id, color: '#999' }; }
-  function tradMeta(id) { return APOC.traditionById(id) || { id: id, name: id, color: '#999', scores: {} }; }
+  function tradMeta(id) { return APOC.traditionById(id) || { id: id, name: id, color: '#999' }; }
   function initials(name) {
     return name.split(/[\s/]+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('').toUpperCase();
   }
