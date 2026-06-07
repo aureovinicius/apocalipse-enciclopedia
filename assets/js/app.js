@@ -176,7 +176,7 @@
         href: 'busca.html?tag=' + slugifyTag(t),
         class: 'tag-chip',
         style: 'font-size:' + weight.toFixed(2) + 'em',
-        text: t
+        text: APOC.tagLabel ? APOC.tagLabel(t) : t
       }));
     });
   }

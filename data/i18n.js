@@ -288,6 +288,8 @@
     var mm = APOC.methodById && APOC.methodById(id); return (mm && mm.name) || id;
   };
   APOC.familyName = function (f) { var m = FAMILY_NAME[APOC.lang]; return (m && m[f]) || f; };
+  // Rótulo de tag traduzido (chave permanece em PT para busca/links); mapa em data/tags-i18n.js
+  APOC.tagLabel = function (tag) { var m = APOC.tagI18n && APOC.tagI18n[APOC.lang]; return (m && m[tag]) || tag; };
 
   var METHOD_DESC = {
     en: {

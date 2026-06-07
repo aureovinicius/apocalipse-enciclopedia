@@ -30,6 +30,7 @@
   <script src="data/search-index.ja.js"></script>
   <script src="data/icons.js"></script>
   <script src="data/i18n.js"></script>
+  <script src="data/tags-i18n.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     (function () {
@@ -57,7 +58,7 @@
           el('h3', {}, [el('span', { class: 'card-ico', text: ico }), document.createTextNode(' ' + t.title + ' →')]),
           el('p', { text: t.summary }),
           el('div', { class: 'tags' }, (t.tags || []).slice(0, 6).map(function (tag) {
-            return el('span', { class: 'tag-chip', text: tag });
+            return el('span', { class: 'tag-chip', text: APOC.tagLabel ? APOC.tagLabel(tag) : tag });
           }))
         ]);
         grid.appendChild(card);

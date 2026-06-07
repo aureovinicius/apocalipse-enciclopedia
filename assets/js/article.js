@@ -24,7 +24,7 @@
       : t('kicker_theme', { book: bookName });
 
     var tags = el('div', { class: 'article-tags' }, (data.tags || []).map(function (tg) {
-      return el('a', { class: 'tag-chip', href: 'busca.html?tag=' + slug(tg), text: tg });
+      return el('a', { class: 'tag-chip', href: 'busca.html?tag=' + slug(tg), text: APOC.tagLabel ? APOC.tagLabel(tg) : tg });
     }));
 
     var printBtn = el('button', { class: 'btn btn-gold', type: 'button', onclick: function () { window.print(); } },

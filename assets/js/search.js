@@ -34,8 +34,8 @@
       el('span', { class: 'rtype', text: typeLabel(a) }),
       el('h3', { text: a.title }),
       a.summary ? el('p', { text: a.summary }) : null,
-      el('div', { class: 'tags' }, (a.tags || []).slice(0, 8).map(function (t) {
-        return el('span', { class: 'tag-chip', style: 'font-size:.76rem;padding:3px 9px', text: t });
+      el('div', { class: 'tags' }, (a.tags || []).slice(0, 8).map(function (tg) {
+        return el('span', { class: 'tag-chip', style: 'font-size:.76rem;padding:3px 9px', text: APOC.tagLabel ? APOC.tagLabel(tg) : tg });
       }))
     ]);
     return card;
@@ -58,7 +58,7 @@
 
     if (tag) {
       root.appendChild(el('div', { class: 'container active-filter' }, [
-        el('span', { class: 'pill', html: t('search_tag') + ' <strong>' + tag + '</strong> &nbsp;<a href="busca.html" title="×">&times;</a>' })
+        el('span', { class: 'pill', html: t('search_tag') + ' <strong>' + (APOC.tagLabel ? APOC.tagLabel(tag) : tag) + '</strong> &nbsp;<a href="busca.html" title="×">&times;</a>' })
       ]));
     }
 
