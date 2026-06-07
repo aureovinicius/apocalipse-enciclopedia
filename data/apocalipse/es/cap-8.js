@@ -1,6 +1,6 @@
 /* Apocalipsis 8 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'd831fea73ef5',
   id: 8,
   slug: 'capitulo-8',
   title: 'Apocalipsis 8 — El séptimo sello y las primeras trompetas',

@@ -1,6 +1,6 @@
 /* Revelation 3 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'a9b7742b7374',
   id: 3,
   slug: 'capitulo-3',
   title: 'Revelation 3 — Letters to Sardis, Philadelphia and Laodicea',

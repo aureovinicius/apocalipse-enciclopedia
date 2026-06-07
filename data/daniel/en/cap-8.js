@@ -1,6 +1,6 @@
 /* Daniel 8 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: '6e8982957886',
   id: 8,
   slug: 'capitulo-8',
   title: 'Daniel 8 — The Ram, the Goat and the 2,300 Evenings and Mornings',

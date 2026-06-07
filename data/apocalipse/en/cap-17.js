@@ -1,6 +1,6 @@
 /* Revelation 17 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '1f0fc2022877',
   id: 17,
   slug: 'capitulo-17',
   title: 'Revelation 17 — The Great Harlot and the Beast',

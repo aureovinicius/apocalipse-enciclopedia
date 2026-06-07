@@ -1,0 +1,24 @@
+name: Status das traduções
+
+# A cada push que toque os dados, verifica se há traduções faltando ou
+# desatualizadas (PT mudou depois de traduzir). Não bloqueia o site (o GitHub
+# Pages publica de qualquer forma); serve como lembrete/checagem visível.
+on:
+  push:
+    paths:
+      - 'data/**'
+  workflow_dispatch:
+
+jobs:
+  i18n:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar traduções pendentes
+        shell: bash
+        run: |
+          node tools/i18n-status.js | tee -a "$GITHUB_STEP_SUMMARY"
+          exit ${PIPESTATUS[0]}

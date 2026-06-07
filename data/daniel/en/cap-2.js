@@ -1,6 +1,6 @@
 /* Daniel 2 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: 'a4fff4f68eff',
   id: 2,
   slug: 'capitulo-2',
   title: 'Daniel 2 — The Dream of the Great Statue',

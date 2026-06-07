@@ -1,6 +1,6 @@
 /* Apocalipsis 9 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'f87720279c18',
   id: 9,
   slug: 'capitulo-9',
   title: 'Apocalipsis 9 — La quinta y la sexta trompetas',

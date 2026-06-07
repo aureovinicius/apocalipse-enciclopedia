@@ -1,6 +1,6 @@
 /* Apocalipsis 2 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '2c34396d589b',
   id: 2,
   slug: 'capitulo-2',
   title: 'Apocalipsis 2 — Cartas a Éfeso, Esmirna, Pérgamo y Tiatira',

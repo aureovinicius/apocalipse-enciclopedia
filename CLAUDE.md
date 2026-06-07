@@ -87,9 +87,22 @@ localizados via `APOC.tradName/methodName/familyName`.
 `data/<livro>/<lang>/cap-N.js` (e `…/<lang>/themes/<slug>.js`), com `lang` no objeto. O loader em
 `article.js` tenta o idioma atual e cai no PT (mostrando `content_note`) se faltar. Versículos por
 idioma de domínio público: PT=Almeida, EN=KJV, ES=Reina-Valera, JA=文語訳. As `tags` ficam em PT em
-todos os idiomas (para a busca/nuvem global). Metadados das grades/busca por idioma em
-`data/search-index.<lang>.js` (gerado por `tools/gen-index-lang.js <lang>`). Ao adicionar/editar
-conteúdo, regenerar os índices dos idiomas afetados.
+todos os idiomas (para a busca/nuvem global); rótulos traduzidos em `data/tags-i18n.js` via
+`APOC.tagLabel`. Metadados das grades/busca por idioma em `data/search-index.<lang>.js`
+(gerado por `tools/gen-index-lang.js <lang>`). Nomes de tradições/métodos/famílias e descrições
+da página Sobre vivem no i18n (`APOC.tradName/methodName/familyName/methodDesc/tradBlurb`).
+
+### Manter as traduções em dia (automação)
+Cada arquivo traduzido guarda `srcHash` = hash do conteúdo PT de origem. Fluxo ao editar/incluir PT:
+1. `node tools/i18n-status.js` — lista o que está **faltando** ou **desatualizado** (a GitHub Action
+   `.github/workflows/i18n-check.yml` roda isso a cada push e mostra no resumo do job).
+2. (Re)traduzir os artigos pendentes para EN/ES/JA (tarefa do Claude — mantém qualidade e os
+   versículos de domínio público corretos).
+3. `node tools/i18n-stamp.js [livro] [chave]` — marca o(s) artigo(s) como atualizados (grava o novo
+   `srcHash`). Sem argumentos, carimba todos (use só no baseline ou após retraduzir tudo).
+4. `node tools/gen-index-lang.js <lang>` — regenera os índices dos idiomas afetados.
+> A tradução em si NÃO é automática de propósito: conteúdo doutrinário + versículos exigem revisão.
+> Para tornar a tradução também automática (via API), bastaria um script chamando um modelo + chave.
 
 ## Regras editoriais (conteúdo)
 - Tom **comparativo e neutro** nos cards e na `intro`; descreve cada posição sem atacá-la.

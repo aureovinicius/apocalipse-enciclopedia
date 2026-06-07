@@ -1,6 +1,6 @@
 /* ダニエル書 第2章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: 'a4fff4f68eff',
   id: 2,
   slug: 'capitulo-2',
   title: 'ダニエル書 第2章 — 大いなる像の夢',

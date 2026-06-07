@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第8章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'd831fea73ef5',
   id: 8,
   slug: 'capitulo-8',
   title: 'ヨハネの黙示録 第8章 — 第七の封印と最初のラッパ',

@@ -1,6 +1,6 @@
 /* Revelation 9 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'f87720279c18',
   id: 9,
   slug: 'capitulo-9',
   title: 'Revelation 9 — The Fifth and Sixth Trumpets',

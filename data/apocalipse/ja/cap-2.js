@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第2章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '2c34396d589b',
   id: 2,
   slug: 'capitulo-2',
   title: 'ヨハネの黙示録 第2章 — エペソ、スミルナ、ペルガモ、テアテラへの手紙',

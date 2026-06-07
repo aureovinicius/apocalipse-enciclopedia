@@ -1,6 +1,6 @@
 /* Apocalipsis 21 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '4d98b507daa8',
   id: 21,
   slug: 'capitulo-21',
   title: 'Apocalipsis 21 — El cielo nuevo y la Nueva Jerusalén',

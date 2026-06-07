@@ -1,6 +1,6 @@
 /* Daniel 5 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: '8f42266bb7a5',
   id: 5,
   slug: 'capitulo-5',
   title: 'Daniel 5 — La escritura en la pared y la caída de Babilonia',

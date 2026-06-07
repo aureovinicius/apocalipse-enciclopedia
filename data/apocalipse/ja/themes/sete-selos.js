@@ -1,6 +1,6 @@
 /* 七つの封印 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'eb335b3d3ffb',
   slug: 'sete-selos',
   title: '七つの封印',
   summary: '封じられた巻物の開封と、騎手・殉教者・印を押された者たち(黙示録5〜7章)を諸伝統を通して見る。',

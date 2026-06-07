@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第11章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '2449a65f7337',
   id: 11,
   slug: 'capitulo-11',
   title: 'ヨハネの黙示録 第11章 — 二人の証人と第七のラッパ',

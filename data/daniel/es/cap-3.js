@@ -1,6 +1,6 @@
 /* Daniel 3 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: '503fa622b3ef',
   id: 3,
   slug: 'capitulo-3',
   title: 'Daniel 3 — El horno de fuego ardiente',

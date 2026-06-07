@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第3章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'a9b7742b7374',
   id: 3,
   slug: 'capitulo-3',
   title: 'ヨハネの黙示録 第3章 — サルデス、フィラデルフィア、ラオデキヤへの手紙',

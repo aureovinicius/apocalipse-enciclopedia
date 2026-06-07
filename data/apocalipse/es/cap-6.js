@@ -1,6 +1,6 @@
 /* Apocalipsis 6 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '41b1a41fc6f5',
   id: 6,
   slug: 'capitulo-6',
   title: 'Apocalipsis 6 — La apertura de los seis primeros sellos',

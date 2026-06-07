@@ -1,6 +1,6 @@
 /* Apocalipsis 14 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'e2dd80d09c33',
   id: 14,
   slug: 'capitulo-14',
   title: 'Apocalipsis 14 — El Cordero en el monte Sion y las siegas',

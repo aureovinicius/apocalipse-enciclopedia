@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第5章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '3db2d382febe',
   id: 5,
   slug: 'capitulo-5',
   title: 'ヨハネの黙示録 第5章 — 子羊と封じられた巻物',

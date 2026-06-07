@@ -1,6 +1,6 @@
 /* Apocalipsis 10 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '8798d70cd212',
   id: 10,
   slug: 'capitulo-10',
   title: 'Apocalipsis 10 — El ángel y el librito',

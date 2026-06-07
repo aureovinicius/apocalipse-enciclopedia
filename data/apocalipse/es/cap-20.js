@@ -1,6 +1,6 @@
 /* Apocalipsis 20 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '89ba82b7248c',
   id: 20,
   slug: 'capitulo-20',
   title: 'Apocalipsis 20 — El milenio y el juicio final',

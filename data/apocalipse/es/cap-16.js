@@ -1,6 +1,6 @@
 /* Apocalipsis 16 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'fbd4667b7db4',
   id: 16,
   slug: 'capitulo-16',
   title: 'Apocalipsis 16 — Las siete copas de la ira',

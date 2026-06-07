@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第10章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '8798d70cd212',
   id: 10,
   slug: 'capitulo-10',
   title: 'ヨハネの黙示録 第10章 — 御使いと小さき巻物',

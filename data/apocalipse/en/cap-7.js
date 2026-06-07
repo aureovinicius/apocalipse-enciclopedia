@@ -1,6 +1,6 @@
 /* Revelation 7 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '2adbe4377e7a',
   id: 7,
   slug: 'capitulo-7',
   title: 'Revelation 7 — The 144,000 and the great multitude',

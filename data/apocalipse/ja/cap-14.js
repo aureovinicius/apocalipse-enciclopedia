@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第14章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'e2dd80d09c33',
   id: 14,
   slug: 'capitulo-14',
   title: 'ヨハネの黙示録 第14章 — シオンの山の小羊と二つの刈り入れ',

@@ -1,6 +1,6 @@
 /* Revelation 16 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'fbd4667b7db4',
   id: 16,
   slug: 'capitulo-16',
   title: 'Revelation 16 — The Seven Bowls of Wrath',

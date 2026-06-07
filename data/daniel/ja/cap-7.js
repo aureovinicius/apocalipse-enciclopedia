@@ -1,6 +1,6 @@
 /* ダニエル書 第7章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: 'b2c0b858e386',
   id: 7,
   slug: 'capitulo-7',
   title: 'ダニエル書 第7章 — 四頭の獣と人の子',

@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第18章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '0e5ad7a32c14',
   id: 18,
   slug: 'capitulo-18',
   title: 'ヨハネの黙示録 第18章 — バビロンの崩壊',

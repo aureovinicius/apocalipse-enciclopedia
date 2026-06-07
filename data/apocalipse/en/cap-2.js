@@ -1,6 +1,6 @@
 /* Revelation 2 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '2c34396d589b',
   id: 2,
   slug: 'capitulo-2',
   title: 'Revelation 2 — Letters to Ephesus, Smyrna, Pergamos and Thyatira',

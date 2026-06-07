@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第19章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '7117f5c72ab3',
   id: 19,
   slug: 'capitulo-19',
   title: 'ヨハネの黙示録 第19章 — 小羊の婚姻と忠実なる騎士',

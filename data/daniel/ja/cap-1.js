@@ -1,6 +1,6 @@
 /* ダニエル書 第1章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: '4ae6f4dd203a',
   id: 1,
   slug: 'capitulo-1',
   title: 'ダニエル書 第1章 — バビロンの宮廷における忠実な者たち',

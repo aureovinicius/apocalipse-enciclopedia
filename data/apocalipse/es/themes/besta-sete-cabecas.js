@@ -1,6 +1,6 @@
 /* La Bestia de Siete Cabezas — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '1b38529ebb84',
   slug: 'besta-sete-cabecas',
   title: 'La Bestia de Siete Cabezas',
   summary: 'La bestia escarlata, la ramera y los símbolos de poder de Apocalipsis 17 en las distintas interpretaciones.',

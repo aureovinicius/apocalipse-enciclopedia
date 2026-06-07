@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第16章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'fbd4667b7db4',
   id: 16,
   slug: 'capitulo-16',
   title: 'ヨハネの黙示録 第16章 — 神の怒りの七つの鉢',

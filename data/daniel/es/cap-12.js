@@ -1,6 +1,6 @@
 /* Daniel 12 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: '4e410631af36',
   id: 12,
   slug: 'capitulo-12',
   title: 'Daniel 12 — El tiempo del fin y la resurrección',

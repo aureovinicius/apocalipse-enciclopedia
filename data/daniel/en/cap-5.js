@@ -1,6 +1,6 @@
 /* Daniel 5 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: '8f42266bb7a5',
   id: 5,
   slug: 'capitulo-5',
   title: 'Daniel 5 — The Writing on the Wall and the Fall of Babylon',

@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第17章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '1f0fc2022877',
   id: 17,
   slug: 'capitulo-17',
   title: 'ヨハネの黙示録 第17章 — 大淫婦と獣',

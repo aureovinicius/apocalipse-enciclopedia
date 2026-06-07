@@ -1,6 +1,6 @@
 /* Apocalipsis 11 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '2449a65f7337',
   id: 11,
   slug: 'capitulo-11',
   title: 'Apocalipsis 11 — Los dos testigos y la séptima trompeta',

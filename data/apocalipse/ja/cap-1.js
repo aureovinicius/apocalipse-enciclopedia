@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第1章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'be469a32900d',
   id: 1,
   slug: 'capitulo-1',
   title: 'ヨハネの黙示録 第1章 — 人の子の幻',

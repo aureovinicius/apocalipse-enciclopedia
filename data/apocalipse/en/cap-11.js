@@ -1,6 +1,6 @@
 /* Revelation 11 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '2449a65f7337',
   id: 11,
   slug: 'capitulo-11',
   title: 'Revelation 11 — The Two Witnesses and the Seventh Trumpet',

@@ -1,6 +1,6 @@
 /* Daniel 1 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: '4ae6f4dd203a',
   id: 1,
   slug: 'capitulo-1',
   title: 'Daniel 1 — Fieles en la corte de Babilonia',

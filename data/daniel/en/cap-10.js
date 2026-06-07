@@ -1,6 +1,6 @@
 /* Daniel 10 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: 'bf6febdf669a',
   id: 10,
   slug: 'capitulo-10',
   title: 'Daniel 10 — The Vision by the River Tigris',

@@ -1,6 +1,6 @@
 /* Daniel 9 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: 'ec9d45a108d9',
   id: 9,
   slug: 'capitulo-9',
   title: 'Daniel 9 — La oración de Daniel y las setenta semanas',

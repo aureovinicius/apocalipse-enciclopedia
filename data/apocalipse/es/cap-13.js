@@ -1,6 +1,6 @@
 /* Apocalipsis 13 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '8d7bfb463929',
   id: 13,
   slug: 'capitulo-13',
   title: 'Apocalipsis 13 — Las dos bestias',

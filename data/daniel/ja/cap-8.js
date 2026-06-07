@@ -1,6 +1,6 @@
 /* ダニエル書 第8章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: '6e8982957886',
   id: 8,
   slug: 'capitulo-8',
   title: 'ダニエル書 第8章 — 雄羊と雄やぎ、そして二千三百の夕と朝',

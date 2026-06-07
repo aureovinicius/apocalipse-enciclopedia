@@ -1,6 +1,6 @@
 /* Daniel 1 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: '4ae6f4dd203a',
   id: 1,
   slug: 'capitulo-1',
   title: 'Daniel 1 — Faithful in the Court of Babylon',

@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第20章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '89ba82b7248c',
   id: 20,
   slug: 'capitulo-20',
   title: 'ヨハネの黙示録 第20章 — 千年王国と最後の審判',

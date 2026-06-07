@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第15章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'c8407640e145',
   id: 15,
   slug: 'capitulo-15',
   title: 'ヨハネの黙示録 第15章 — 最後の七つの災害を持つ七人の御使',

@@ -1,6 +1,6 @@
 /* ダニエル書 第10章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: 'bf6febdf669a',
   id: 10,
   slug: 'capitulo-10',
   title: 'ダニエル書 第10章 — チグリス川のほとりの幻',

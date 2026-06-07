@@ -1,6 +1,6 @@
 /* ダニエル書 第4章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: 'ac481f09b70a',
   id: 4,
   slug: 'capitulo-4',
   title: 'ダニエル書 第4章 — 木の夢とネブカデネザルの卑しめ',

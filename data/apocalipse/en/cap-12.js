@@ -1,6 +1,6 @@
 /* Revelation 12 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '2cf95e728f1f',
   id: 12,
   slug: 'capitulo-12',
   title: 'Revelation 12 — The Woman, the Dragon and the Child',

@@ -1,6 +1,6 @@
 /* Las Siete Iglesias — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'da80399e8fe1',
   slug: 'sete-igrejas',
   title: 'Las Siete Iglesias',
   summary: 'Un estudio de las cartas a las siete iglesias de Asia (Apocalipsis 2–3) y sus lecturas locales, históricas y simbólicas.',

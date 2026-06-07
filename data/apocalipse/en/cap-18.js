@@ -1,6 +1,6 @@
 /* Revelation 18 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '0e5ad7a32c14',
   id: 18,
   slug: 'capitulo-18',
   title: 'Revelation 18 — The Fall of Babylon',

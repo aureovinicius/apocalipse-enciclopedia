@@ -1,6 +1,6 @@
 /* Apocalipsis 15 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'c8407640e145',
   id: 15,
   slug: 'capitulo-15',
   title: 'Apocalipsis 15 — Los siete ángeles con las últimas plagas',

@@ -1,6 +1,6 @@
 /* Daniel 6 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: '341c41fd7e18',
   id: 6,
   slug: 'capitulo-6',
   title: 'Daniel 6 — Daniel en el foso de los leones',

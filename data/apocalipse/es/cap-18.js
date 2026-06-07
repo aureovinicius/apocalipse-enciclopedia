@@ -1,6 +1,6 @@
 /* Apocalipsis 18 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '0e5ad7a32c14',
   id: 18,
   slug: 'capitulo-18',
   title: 'Apocalipsis 18 — La caída de Babilonia',

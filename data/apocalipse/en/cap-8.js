@@ -1,6 +1,6 @@
 /* Revelation 8 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'd831fea73ef5',
   id: 8,
   slug: 'capitulo-8',
   title: 'Revelation 8 — The Seventh Seal and the First Trumpets',

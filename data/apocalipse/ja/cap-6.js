@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第6章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '41b1a41fc6f5',
   id: 6,
   slug: 'capitulo-6',
   title: 'ヨハネの黙示録 第6章 — 最初の六つの封印が開かれる',

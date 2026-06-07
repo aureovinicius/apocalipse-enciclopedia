@@ -1,6 +1,6 @@
 /* Apocalipsis 12 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '2cf95e728f1f',
   id: 12,
   slug: 'capitulo-12',
   title: 'Apocalipsis 12 — La mujer, el dragón y el niño',

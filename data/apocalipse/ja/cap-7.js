@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第7章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '2adbe4377e7a',
   id: 7,
   slug: 'capitulo-7',
   title: 'ヨハネの黙示録 第7章 — 十四万四千人と大いなる群衆',

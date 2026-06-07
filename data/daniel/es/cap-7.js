@@ -1,6 +1,6 @@
 /* Daniel 7 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: 'b2c0b858e386',
   id: 7,
   slug: 'capitulo-7',
   title: 'Daniel 7 — Las cuatro bestias y el Hijo del Hombre',

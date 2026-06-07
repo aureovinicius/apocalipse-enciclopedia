@@ -1,6 +1,6 @@
 /* Daniel 4 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: 'ac481f09b70a',
   id: 4,
   slug: 'capitulo-4',
   title: 'Daniel 4 — The Dream of the Tree and the Humbling of Nebuchadnezzar',

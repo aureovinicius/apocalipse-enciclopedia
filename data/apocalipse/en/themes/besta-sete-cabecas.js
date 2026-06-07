@@ -1,6 +1,6 @@
 /* The Beast with Seven Heads — English translation. Verses: KJV. */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '1b38529ebb84',
   slug: 'besta-sete-cabecas',
   title: 'The Beast with Seven Heads',
   summary: 'The scarlet beast, the harlot and the symbols of power of Revelation 17 across the different interpretations.',

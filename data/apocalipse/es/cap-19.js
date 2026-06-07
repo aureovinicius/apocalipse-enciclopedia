@@ -1,6 +1,6 @@
 /* Apocalipsis 19 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '7117f5c72ab3',
   id: 19,
   slug: 'capitulo-19',
   title: 'Apocalipsis 19 — Las bodas del Cordero y el Jinete fiel',

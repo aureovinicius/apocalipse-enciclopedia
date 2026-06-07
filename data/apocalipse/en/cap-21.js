@@ -1,6 +1,6 @@
 /* Revelation 21 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '4d98b507daa8',
   id: 21,
   slug: 'capitulo-21',
   title: 'Revelation 21 — The New Heaven and the New Jerusalem',

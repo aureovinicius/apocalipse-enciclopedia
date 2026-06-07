@@ -1,6 +1,6 @@
 /* Los Siete Sellos — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'eb335b3d3ffb',
   slug: 'sete-selos',
   title: 'Los Siete Sellos',
   summary: 'La apertura del libro sellado y los jinetes, mártires y sellados (Apocalipsis 5–7) a través de las tradiciones.',

@@ -1,6 +1,6 @@
 /* Apocalipsis 1 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'be469a32900d',
   id: 1,
   slug: 'capitulo-1',
   title: 'Apocalipsis 1 — La visión del Hijo del Hombre',

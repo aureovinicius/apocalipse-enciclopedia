@@ -1,6 +1,6 @@
 /* Daniel 2 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: 'a4fff4f68eff',
   id: 2,
   slug: 'capitulo-2',
   title: 'Daniel 2 — El sueño de la gran estatua',

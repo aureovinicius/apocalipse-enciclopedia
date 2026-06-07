@@ -1,6 +1,6 @@
 /* Apocalipsis 7 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '2adbe4377e7a',
   id: 7,
   slug: 'capitulo-7',
   title: 'Apocalipsis 7 — Los 144 mil y la gran multitud',

@@ -1,6 +1,6 @@
 /* ダニエル書 第12章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: '4e410631af36',
   id: 12,
   slug: 'capitulo-12',
   title: 'ダニエル書 第12章 — 終わりの時と復活',

@@ -1,6 +1,6 @@
 /* ダニエル書 第3章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: '503fa622b3ef',
   id: 3,
   slug: 'capitulo-3',
   title: 'ダニエル書 第3章 — 燃える炉',

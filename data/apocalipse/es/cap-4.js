@@ -1,6 +1,6 @@
 /* Apocalipsis 4 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '101347e84c03',
   id: 4,
   slug: 'capitulo-4',
   title: 'Apocalipsis 4 — El trono celestial',

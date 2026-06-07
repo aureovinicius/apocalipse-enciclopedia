@@ -1,6 +1,6 @@
 /* Daniel 11 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: 'ad2bb90405be',
   id: 11,
   slug: 'capitulo-11',
   title: 'Daniel 11 — The Kings of the North and the South',

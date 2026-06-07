@@ -1,6 +1,6 @@
 /* Revelation 5 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '3db2d382febe',
   id: 5,
   slug: 'capitulo-5',
   title: 'Revelation 5 — The Lamb and the Sealed Scroll',

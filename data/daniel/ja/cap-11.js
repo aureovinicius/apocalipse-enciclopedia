@@ -1,6 +1,6 @@
 /* ダニエル書 第11章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: 'ad2bb90405be',
   id: 11,
   slug: 'capitulo-11',
   title: 'ダニエル書 第11章 — 北の王と南の王',

@@ -1,6 +1,6 @@
 /* Daniel 10 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: 'bf6febdf669a',
   id: 10,
   slug: 'capitulo-10',
   title: 'Daniel 10 — La visión junto al río Tigris',

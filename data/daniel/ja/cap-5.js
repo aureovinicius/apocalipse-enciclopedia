@@ -1,6 +1,6 @@
 /* ダニエル書 第5章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: '8f42266bb7a5',
   id: 5,
   slug: 'capitulo-5',
   title: 'ダニエル書 第5章 — 壁の文字とバビロンの陥落',

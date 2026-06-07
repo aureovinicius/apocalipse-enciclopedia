@@ -1,6 +1,6 @@
 /* Revelation 10 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '8798d70cd212',
   id: 10,
   slug: 'capitulo-10',
   title: 'Revelation 10 — The angel and the little book',

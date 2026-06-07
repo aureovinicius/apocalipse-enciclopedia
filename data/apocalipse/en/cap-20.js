@@ -1,6 +1,6 @@
 /* Revelation 20 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '89ba82b7248c',
   id: 20,
   slug: 'capitulo-20',
   title: 'Revelation 20 — The Millennium and the Final Judgment',

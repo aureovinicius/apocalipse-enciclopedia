@@ -1,6 +1,6 @@
 /* Apocalipsis 22 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'e189ed3008bf',
   id: 22,
   slug: 'capitulo-22',
   title: 'Apocalipsis 22 — El río de la vida y la venida de Cristo',

@@ -1,6 +1,6 @@
 /* 七つの頭を持つ獣 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '1b38529ebb84',
   slug: 'besta-sete-cabecas',
   title: '七つの頭を持つ獣',
   summary: 'ヨハネ黙示録17章の緋色の獣、淫婦、そして権力の象徴を、さまざまな解釈の中で読み解く。',

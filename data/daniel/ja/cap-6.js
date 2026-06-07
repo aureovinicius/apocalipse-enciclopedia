@@ -1,6 +1,6 @@
 /* ダニエル書 第6章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: '341c41fd7e18',
   id: 6,
   slug: 'capitulo-6',
   title: 'ダニエル書 第6章 — 獅子の穴のダニエル',

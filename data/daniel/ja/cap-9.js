@@ -1,6 +1,6 @@
 /* ダニエル書 第9章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'ja',
+  book: 'daniel', lang: 'ja', srcHash: 'ec9d45a108d9',
   id: 9,
   slug: 'capitulo-9',
   title: 'ダニエル書 第9章 — ダニエルの祈りと七十週',

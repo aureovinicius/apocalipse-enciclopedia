@@ -1,6 +1,6 @@
 /* Revelation 15 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'c8407640e145',
   id: 15,
   slug: 'capitulo-15',
   title: 'Revelation 15 — The Seven Angels with the Last Plagues',

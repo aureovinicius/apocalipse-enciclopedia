@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第22章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'e189ed3008bf',
   id: 22,
   slug: 'capitulo-22',
   title: 'ヨハネの黙示録 第22章 — いのちの川とキリストの来臨',

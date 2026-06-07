@@ -1,6 +1,6 @@
 /* Revelation 13 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '8d7bfb463929',
   id: 13,
   slug: 'capitulo-13',
   title: 'Revelation 13 — The Two Beasts',

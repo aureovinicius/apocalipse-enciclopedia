@@ -1,6 +1,6 @@
 /* Revelation 19 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '7117f5c72ab3',
   id: 19,
   slug: 'capitulo-19',
   title: 'Revelation 19 — The Marriage of the Lamb and the Faithful Rider',

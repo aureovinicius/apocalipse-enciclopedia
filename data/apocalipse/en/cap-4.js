@@ -1,6 +1,6 @@
 /* Revelation 4 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '101347e84c03',
   id: 4,
   slug: 'capitulo-4',
   title: 'Revelation 4 — The Heavenly Throne',

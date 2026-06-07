@@ -1,6 +1,6 @@
 /* Revelation 22 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'e189ed3008bf',
   id: 22,
   slug: 'capitulo-22',
   title: 'Revelation 22 — The River of Life and the Coming of Christ',

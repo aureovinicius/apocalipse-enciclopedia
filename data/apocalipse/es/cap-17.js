@@ -1,6 +1,6 @@
 /* Apocalipsis 17 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '1f0fc2022877',
   id: 17,
   slug: 'capitulo-17',
   title: 'Apocalipsis 17 — La gran ramera y la bestia',

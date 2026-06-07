@@ -1,6 +1,6 @@
 /* Daniel 4 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: 'ac481f09b70a',
   id: 4,
   slug: 'capitulo-4',
   title: 'Daniel 4 — El sueño del árbol y la humillación de Nabucodonosor',

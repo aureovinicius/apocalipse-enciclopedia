@@ -1,6 +1,6 @@
 /* Apocalipsis 3 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: 'a9b7742b7374',
   id: 3,
   slug: 'capitulo-3',
   title: 'Apocalipsis 3 — Cartas a Sardis, Filadelfia y Laodicea',

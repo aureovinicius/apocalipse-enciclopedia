@@ -1,6 +1,6 @@
 /* Apocalipsis 5 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'es',
+  book: 'apocalipse', lang: 'es', srcHash: '3db2d382febe',
   id: 5,
   slug: 'capitulo-5',
   title: 'Apocalipsis 5 — El Cordero y el libro sellado',

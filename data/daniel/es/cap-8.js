@@ -1,6 +1,6 @@
 /* Daniel 8 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: '6e8982957886',
   id: 8,
   slug: 'capitulo-8',
   title: 'Daniel 8 — El carnero, el macho cabrío y las 2.300 tardes y mañanas',

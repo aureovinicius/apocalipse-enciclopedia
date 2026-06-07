@@ -1,6 +1,6 @@
 /* Daniel 3 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: '503fa622b3ef',
   id: 3,
   slug: 'capitulo-3',
   title: 'Daniel 3 — The Fiery Furnace',

@@ -1,6 +1,6 @@
 /* Revelation 14 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'e2dd80d09c33',
   id: 14,
   slug: 'capitulo-14',
   title: 'Revelation 14 — The Lamb on Mount Zion and the Harvests',

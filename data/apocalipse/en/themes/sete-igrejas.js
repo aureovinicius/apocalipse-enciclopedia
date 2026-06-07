@@ -1,6 +1,6 @@
 /* The Seven Churches — English translation. Verses: KJV. */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'da80399e8fe1',
   slug: 'sete-igrejas',
   title: 'The Seven Churches',
   summary: 'A study of the letters to the seven churches of Asia (Revelation 2–3) and their local, historical and symbolic readings.',

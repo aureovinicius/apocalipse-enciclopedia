@@ -1,6 +1,6 @@
 /* Revelation 6 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: '41b1a41fc6f5',
   id: 6,
   slug: 'capitulo-6',
   title: 'Revelation 6 — The Opening of the First Six Seals',

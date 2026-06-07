@@ -1,6 +1,6 @@
 /* Revelation 1 — English translation. Verses: KJV (public domain). */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'be469a32900d',
   id: 1,
   slug: 'capitulo-1',
   title: 'Revelation 1 — The Vision of the Son of Man',

@@ -1,6 +1,6 @@
 /* Daniel 12 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: '4e410631af36',
   id: 12,
   slug: 'capitulo-12',
   title: 'Daniel 12 — The time of the end and the resurrection',

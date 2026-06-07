@@ -1,6 +1,6 @@
 /* Daniel 9 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: 'ec9d45a108d9',
   id: 9,
   slug: 'capitulo-9',
   title: 'Daniel 9 — Daniel’s Prayer and the Seventy Weeks',

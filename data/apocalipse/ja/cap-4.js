@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第4章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '101347e84c03',
   id: 4,
   slug: 'capitulo-4',
   title: 'ヨハネの黙示録 第4章 — 天上の御座',

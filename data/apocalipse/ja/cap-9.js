@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第9章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'f87720279c18',
   id: 9,
   slug: 'capitulo-9',
   title: 'ヨハネの黙示録 第9章 — 第五と第六のラッパ',

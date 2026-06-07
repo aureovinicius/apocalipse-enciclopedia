@@ -1,6 +1,6 @@
 /* Daniel 7 — English translation. Verses: KJV. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'en',
+  book: 'daniel', lang: 'en', srcHash: 'b2c0b858e386',
   id: 7,
   slug: 'capitulo-7',
   title: 'Daniel 7 — The Four Beasts and the Son of Man',

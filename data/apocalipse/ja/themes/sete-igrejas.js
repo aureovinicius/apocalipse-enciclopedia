@@ -1,6 +1,6 @@
 /* 七つの教会 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: 'da80399e8fe1',
   slug: 'sete-igrejas',
   title: '七つの教会',
   summary: 'アジアの七つの教会への手紙(ヨハネ黙示録2〜3章)と、その地域的・歴史的・象徴的な読みの研究。',

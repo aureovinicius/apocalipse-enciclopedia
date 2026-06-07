@@ -1,6 +1,6 @@
 /* The Seven Seals — English translation. Verses: KJV. */
 window.APOC.register('theme', {
-  book: 'apocalipse', lang: 'en',
+  book: 'apocalipse', lang: 'en', srcHash: 'eb335b3d3ffb',
   slug: 'sete-selos',
   title: 'The Seven Seals',
   summary: 'The opening of the sealed book and the horsemen, martyrs and sealed ones (Revelation 5–7) across the traditions.',

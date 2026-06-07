@@ -1,6 +1,6 @@
 /* Daniel 11 — traducción al español. Versículos: Reina-Valera. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'es',
+  book: 'daniel', lang: 'es', srcHash: 'ad2bb90405be',
   id: 11,
   slug: 'capitulo-11',
   title: 'Daniel 11 — Los reyes del Norte y del Sur',

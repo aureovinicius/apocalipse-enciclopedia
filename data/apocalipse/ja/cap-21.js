@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第21章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '4d98b507daa8',
   id: 21,
   slug: 'capitulo-21',
   title: 'ヨハネの黙示録 第21章 — 新しい天と新しいエルサレム',

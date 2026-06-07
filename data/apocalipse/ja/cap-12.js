@@ -1,6 +1,6 @@
 /* ヨハネの黙示録 第12章 — 日本語訳。聖句:文語訳。 */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'ja',
+  book: 'apocalipse', lang: 'ja', srcHash: '2cf95e728f1f',
   id: 12,
   slug: 'capitulo-12',
   title: 'ヨハネの黙示録 第12章 — 女と竜と男の子',
