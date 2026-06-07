@@ -132,7 +132,9 @@
     var mount = document.getElementById(mountId);
     if (!mount) return;
     var counts = tagCounts();
-    var tags = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
+    // exibe apenas tags que aparecem em pelo menos duas páginas
+    var tags = Object.keys(counts).filter(function (t) { return counts[t] >= 2; })
+      .sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
     if (!tags.length) { mount.appendChild(el('p', { class: 'muted', text: 'As tags aparecerão conforme os artigos forem publicados.' })); return; }
     var max = counts[tags[0]] || 1;
     tags.forEach(function (t) {

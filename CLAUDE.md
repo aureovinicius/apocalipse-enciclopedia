@@ -100,5 +100,6 @@ Manter os mesmos padrões. Sugestão ao expandir: introduzir um conceito de "liv
 tema visual, modelo de dados e regras editoriais acima.
 
 ## Git
-- Commitar/empurrar só quando pedido. A pasta `roteiros-videos/` é ignorada (não versionar).
+- **Commitar e empurrar automaticamente** após cada mudança concluída, sem precisar pedir
+  (preferência do autor). A pasta `roteiros-videos/` é ignorada (não versionar).
 - Rodapé de commit: `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`.
