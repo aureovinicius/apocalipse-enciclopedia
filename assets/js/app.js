@@ -128,12 +128,17 @@
       el('span', { class: 'brand-name', text: t('site_title') })
     ]);
 
+    var langSwitch = buildLangSwitch();
+
     var toggle = el('button', {
       class: 'nav-toggle', 'aria-label': 'Abrir menu', type: 'button',
-      onclick: function () { nav.classList.toggle('is-open'); }
+      onclick: function () {
+        nav.classList.toggle('is-open');
+        langSwitch.classList.toggle('is-open');
+      }
     }, [el('span', { html: '&#9776;' })]);
 
-    mount.appendChild(el('div', { class: 'header-inner' }, [brand, nav, buildLangSwitch(), toggle]));
+    mount.appendChild(el('div', { class: 'header-inner' }, [brand, nav, langSwitch, toggle]));
   }
 
   function buildFooter() {

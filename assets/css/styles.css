@@ -312,9 +312,10 @@ table.compare td.trad { font-family: var(--display); color: var(--ink); white-sp
   .header-inner { flex-wrap: wrap; }
   .brand { order: 1; }
   .nav-toggle { display: block; margin-left: auto; order: 2; }
-  .lang-switch { order: 3; width: 100%; margin: 12px 0 2px; justify-content: center; gap: 4px; }
-  .lang-btn { font-size: 1.3rem; padding: 6px 8px; }
   .site-nav { display: none; flex-direction: column; width: 100%; margin-top: 10px; order: 4; }
   .site-nav.is-open { display: flex; }
+  .lang-switch { display: none; order: 5; width: 100%; margin: 10px 0 2px; justify-content: center; gap: 4px; }
+  .lang-switch.is-open { display: flex; }
+  .lang-btn { font-size: 1.3rem; padding: 6px 8px; }
   body { font-size: 17px; }
 }
