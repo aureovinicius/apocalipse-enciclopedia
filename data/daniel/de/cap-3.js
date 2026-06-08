@@ -1,6 +1,6 @@
 /* Daniel 3 — deutsche Übersetzung. Verse: Lutherbibel 1912. */
 window.APOC.register('chapter', {
-  book: 'daniel', lang: 'de',
+  book: 'daniel', lang: 'de', srcHash: '503fa622b3ef',
   id: 3,
   slug: 'capitulo-3',
   title: 'Daniel 3 — Der feurige Ofen',
