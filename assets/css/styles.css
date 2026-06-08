@@ -89,6 +89,18 @@ a:hover { color: var(--gold-bright); }
 .lang-btn.is-active { filter: none; border-color: var(--gold); background: rgba(200, 162, 74, .14); }
 .lang-flag { display: inline-block; }
 
+/* Fallback: quando o sistema não exibe emojis de bandeira (ex.: Windows),
+   mostramos a sigla do idioma em fonte discreta e legível no fundo escuro. */
+.lang-flag.lang-code {
+  font-family: var(--sans); font-size: .82rem; font-weight: 700;
+  letter-spacing: .05em; color: var(--ink-soft); line-height: 1;
+}
+.lang-switch.no-flags .lang-btn { filter: none; opacity: .72; }
+.lang-switch.no-flags .lang-btn:hover { opacity: 1; }
+.lang-switch.no-flags .lang-btn:hover .lang-code { color: var(--gold-bright); }
+.lang-switch.no-flags .lang-btn.is-active { opacity: 1; }
+.lang-switch.no-flags .lang-btn.is-active .lang-code { color: var(--gold); }
+
 /* ---------- Rodapé ---------- */
 #site-footer { border-top: 1px solid var(--line); margin-top: 70px; background: rgba(0, 0, 0, .18); }
 .footer-inner { max-width: var(--maxw); margin: 0 auto; padding: 34px 22px; text-align: center; color: var(--ink-faint); }
