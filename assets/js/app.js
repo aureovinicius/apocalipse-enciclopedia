@@ -96,16 +96,52 @@
 
   function t(k, p) { return APOC.t ? APOC.t(k, p) : k; }
 
+  /* Alguns sistemas (notadamente o Windows) não renderizam emojis de bandeira
+     (indicadores regionais): em vez da bandeira aparece a sigla do país em texto
+     preto. Detectamos isso desenhando 🇧🇷 num canvas e checando se há pixels
+     coloridos (bandeira) ou só letras pretas (sem suporte). Resultado em cache. */
+  var _flagsOk = null;
+  function flagEmojiSupported() {
+    if (_flagsOk !== null) return _flagsOk;
+    _flagsOk = false;
+    try {
+      var canvas = document.createElement('canvas');
+      canvas.width = 24; canvas.height = 16;
+      var ctx = canvas.getContext && canvas.getContext('2d', { willReadFrequently: true });
+      if (!ctx) return _flagsOk;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.textBaseline = 'top';
+      ctx.font = '16px sans-serif';
+      ctx.fillStyle = '#000';
+      ctx.fillText('🇧🇷', 0, 0); // 🇧🇷
+      var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      for (var i = 0; i < data.length; i += 4) {
+        if (data[i + 3] < 16) continue; // pixel transparente
+        var r = data[i], g = data[i + 1], b = data[i + 2];
+        // Letras pretas têm canais ~iguais; a bandeira tem cor (canais distintos).
+        if (Math.max(r, g, b) - Math.min(r, g, b) > 40) { _flagsOk = true; break; }
+      }
+    } catch (e) { _flagsOk = false; }
+    return _flagsOk;
+  }
+
   function buildLangSwitch() {
     var current = APOC.lang || 'pt';
+    var flagsOk = flagEmojiSupported();
     var btns = (APOC.langs || []).map(function (L) {
+      var glyph = flagsOk
+        ? el('span', { class: 'lang-flag', text: L.flag })
+        : el('span', { class: 'lang-flag lang-code', text: (L.code || '').toUpperCase() });
       return el('button', {
         class: 'lang-btn' + (L.code === current ? ' is-active' : ''),
         type: 'button', title: L.label, 'aria-label': L.label,
         onclick: function () { if (APOC.setLang) APOC.setLang(L.code); }
-      }, [el('span', { class: 'lang-flag', text: L.flag })]);
+      }, [glyph]);
     });
-    return el('div', { class: 'lang-switch', 'aria-label': 'Idioma / Language' }, btns);
+    return el('div', {
+      class: 'lang-switch' + (flagsOk ? '' : ' no-flags'),
+      'aria-label': 'Idioma / Language'
+    }, btns);
   }
 
   function buildHeader() {
