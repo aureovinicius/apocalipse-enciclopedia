@@ -1,8 +1,8 @@
 /* ==========================================================================
    Apocalipse — Manuscrito Iluminado Moderno
-   Fundo pergaminho escuro · ouro & bordô · Nunito (sem serifa, todo o site)
+   Fundo pergaminho escuro · ouro & bordô · Poppins (títulos) + Nunito (corpo)
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap');
 
 :root {
   --bg: #1b1813;
@@ -21,7 +21,7 @@
   --shadow: 0 18px 48px rgba(0, 0, 0, .45);
   --sans: 'Nunito', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
   --serif: var(--sans);
-  --display: var(--sans);
+  --display: 'Poppins', var(--sans);
   --radius: 10px;
   --maxw: 1120px;
 }
