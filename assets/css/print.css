@@ -29,7 +29,7 @@
 
   /* Mostra todos os painéis de exploração e cabe na impressão */
   .explore-panel { display: block !important; page-break-inside: auto; }
-  .explore-section-title { display: block !important; font-family: 'Playfair Display', serif; font-size: 14pt; color: #7b2230 !important; margin: 16px 0 8px; border-bottom: 1px solid #c8a24a; padding-bottom: 4px; }
+  .explore-section-title { display: block !important; font-family: 'Nunito', system-ui, sans-serif; font-size: 14pt; color: #7b2230 !important; margin: 16px 0 8px; border-bottom: 1px solid #c8a24a; padding-bottom: 4px; }
 
   /* Interpretações: todas abertas e em fluxo de coluna única */
   .interp-list { display: block !important; }
