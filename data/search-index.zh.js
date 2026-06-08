@@ -1,0 +1,43 @@
+/* Índice (metadados) em zh — gerado por tools/gen-index-lang.js. Títulos/resumos no idioma; tags em PT. */
+(function () {
+  window.APOC = window.APOC || {};
+  window.APOC.index_zh = [
+    {"book":"apocalipse","type":"chapter","id":1,"slug":"capitulo-1","title":"启示录 1 — 人子的异象","summary":"序言、向七个教会的问安,以及荣耀的基督行走在七个灯台之间的开篇异象。","tags":["cristofania","alfa e ômega","sete igrejas","filho do homem","patmos","candeeiros"]},
+    {"book":"apocalipse","type":"chapter","id":2,"slug":"capitulo-2","title":"启示录 2 — 写给以弗所、士每拿、别迦摩与推雅推喇的书信","summary":"七封书信中的前四封:对得胜者的称赞、责备与应许。","tags":["sete igrejas","éfeso","esmirna","pérgamo","tiatira","cartas"]},
+    {"book":"apocalipse","type":"chapter","id":3,"slug":"capitulo-3","title":"启示录 3 — 写给撒狄、非拉铁非与老底嘉的书信","summary":"写给众教会的最后三封书信,包括对老底嘉不冷不热的著名警戒。","tags":["sete igrejas","sardes","filadélfia","laodiceia","cartas","mornidão"]},
+    {"book":"apocalipse","type":"chapter","id":4,"slug":"capitulo-4","title":"启示录 4 — 天上的宝座","summary":"天上敞开的门、宝座、二十四位长老,以及四个活物在敬拜之中。","tags":["trono","adoração","24 anciãos","quatro seres viventes","céu"]},
+    {"book":"apocalipse","type":"chapter","id":5,"slug":"capitulo-5","title":"启示录 5 — 羔羊与封严的书卷","summary":"谁配展开那七印封严的书卷?唯有那被杀的羔羊。","tags":["cordeiro","livro selado","sete selos","dignidade","redenção"]},
+    {"book":"apocalipse","type":"chapter","id":6,"slug":"capitulo-6","title":"启示录 6 — 前六印的揭开","summary":"四骑士、祭坛底下殉道者的呼喊,以及羔羊忿怒的大地震。","tags":["selos","cavaleiros do apocalipse","mártires","ira do cordeiro"]},
+    {"book":"apocalipse","type":"chapter","id":7,"slug":"capitulo-7","title":"启示录 7 — 十四万四千人与许多的人","summary":"以色列各支派十四万四千人受印,以及从各国而来无人能数的群众。","tags":["144 mil","grande multidão","selados","tribos de israel","remanescente"]},
+    {"book":"apocalipse","type":"chapter","id":8,"slug":"capitulo-8","title":"启示录 8 — 第七印与最初的号筒","summary":"天上的寂静、祷告的香,以及最初四枝审判的号筒。","tags":["sétimo selo","trombetas","incenso","juízos"]},
+    {"book":"apocalipse","type":"chapter","id":9,"slug":"capitulo-9","title":"启示录 9 — 第五号与第六号","summary":"在亚巴顿统领下从无底坑出来的蝗虫,以及在幼发拉底河旁被释放的军队。","tags":["trombetas","gafanhotos","abismo","abadom","exército"]},
+    {"book":"apocalipse","type":"chapter","id":10,"slug":"capitulo-10","title":"启示录 10 — 天使与小书卷","summary":"大力的天使、被封住的七雷,以及约翰吃下的那卷又甜又苦的小书卷。","tags":["anjo forte","livrinho","sete trovões","profecia"]},
+    {"book":"apocalipse","type":"chapter","id":11,"slug":"capitulo-11","title":"启示录 11 — 两个见证人与第七号","summary":"量度圣殿、两个见证人的职事与死亡,以及那归于主的国度。","tags":["duas testemunhas","templo","sétima trombeta","reino"]},
+    {"book":"apocalipse","type":"chapter","id":12,"slug":"capitulo-12","title":"启示录 12 — 妇人、大龙与男孩","summary":"妇人的大异象、红色的大龙、天上的争战,以及逃往旷野。","tags":["mulher","dragão","menino","miguel","deserto"]},
+    {"book":"apocalipse","type":"chapter","id":13,"slug":"capitulo-13","title":"启示录 13 — 两只兽","summary":"从海中上来的兽、从地中上来的兽、那印记,以及神秘的数字 666。","tags":["besta","666","falso profeta","marca da besta","anticristo"]},
+    {"book":"apocalipse","type":"chapter","id":14,"slug":"capitulo-14","title":"启示录 14 — 羔羊在锡安山与两场收割","summary":"与羔羊同在的十四万四千人、传永远福音的天使,以及地上的两场收割。","tags":["cordeiro","monte sião","144 mil","evangelho eterno","ceifa","vindima"]},
+    {"book":"apocalipse","type":"chapter","id":15,"slug":"capitulo-15","title":"启示录 15 — 拿着末后灾难的七位天使","summary":"玻璃海、摩西与羔羊的歌,以及七碗的预备。","tags":["sete anjos","últimas pragas","mar de vidro","cântico de moisés"]},
+    {"book":"apocalipse","type":"chapter","id":16,"slug":"capitulo-16","title":"启示录 16 — 忿怒的七碗","summary":"七碗的倾倒、幼发拉底河的干涸,以及哈米吉多顿之战。","tags":["sete taças","ira","armagedom","eufrates"]},
+    {"book":"apocalipse","type":"chapter","id":17,"slug":"capitulo-17","title":"启示录 17 — 大淫妇与那兽","summary":"骑在朱红色兽上的妇人、巴比伦、七座山与十只角。","tags":["prostituta","babilônia","besta sete cabeças","sete colinas","dez chifres"]},
+    {"book":"apocalipse","type":"chapter","id":18,"slug":"capitulo-18","title":"启示录 18 — 巴比伦的倾倒","summary":"宣告巴比伦的毁灭,以及君王、客商与水手的哀号。","tags":["babilônia","queda","mercadores","juízo","lamento"]},
+    {"book":"apocalipse","type":"chapter","id":19,"slug":"capitulo-19","title":"启示录 19 — 羔羊的婚筵与那忠信真实的骑者","summary":"天上的哈利路亚、羔羊的婚筵,以及那称为忠信真实者的骑者降临。","tags":["bodas do cordeiro","aleluia","cavaleiro fiel e verdadeiro","verbo de deus"]},
+    {"book":"apocalipse","type":"chapter","id":20,"slug":"capitulo-20","title":"启示录 20 — 千禧年与末后的审判","summary":"撒但被囚、一千年的统治、歌革和玛各,以及白色大宝座的审判。","tags":["milênio","gogue e magogue","primeira ressurreição","juízo final","lago de fogo"]},
+    {"book":"apocalipse","type":"chapter","id":21,"slug":"capitulo-21","title":"启示录 21 — 新天新地与新耶路撒冷","summary":"新天新地,以及羔羊的新妇——新耶路撒冷——从天而降。","tags":["novo céu","nova terra","nova jerusalém","noiva","sem mais morte"]},
+    {"book":"apocalipse","type":"chapter","id":22,"slug":"capitulo-22","title":"启示录 22 — 生命之河与基督的降临","summary":"生命之河与生命树、末了的警告,以及那应许:「我必快来。」","tags":["rio da vida","árvore da vida","maranata","vinda de cristo","ômega"]},
+    {"book":"apocalipse","type":"theme","id":null,"slug":"sete-igrejas","title":"七教会","summary":"研究致亚细亚七教会的书信(启示录2–3)及其地方性、历史性与象征性的解读。","tags":["sete igrejas","éfeso","esmirna","pérgamo","tiatira","sardes","filadélfia","laodiceia","cartas"]},
+    {"book":"apocalipse","type":"theme","id":null,"slug":"sete-selos","title":"七印","summary":"封住之书的揭开,以及众骑士、殉道者与受印者(启示录5–7)在各传统中的解读。","tags":["sete selos","cordeiro","cavaleiros do apocalipse","144 mil","mártires"]},
+    {"book":"apocalipse","type":"theme","id":null,"slug":"besta-sete-cabecas","title":"七头兽","summary":"启示录第17章中的朱红色兽、淫妇,以及各种诠释中的权势象征。","tags":["besta","sete cabeças","babilônia","prostituta","dez chifres","anticristo"]},
+    {"book":"daniel","type":"chapter","id":1,"slug":"capitulo-1","title":"但以理书 1 — 巴比伦宫廷里的忠心人","summary":"但以理和他的三个朋友拒绝王的膳食;十天的试验印证了他们的忠心。","tags":["daniel","babilônia","prova de dez dias","fidelidade","dieta","corte"]},
+    {"book":"daniel","type":"chapter","id":2,"slug":"capitulo-2","title":"但以理书 2 — 大像的梦","summary":"尼布甲尼撒梦见一座金属的大像,以及那砸碎它、充满全地的石头:历史上的列国。","tags":["estátua","nabucodonosor","reinos","pedra","sonho","profecia"]},
+    {"book":"daniel","type":"chapter","id":3,"slug":"capitulo-3","title":"但以理书 3 — 烈火的窑","summary":"沙得拉、米煞、亚伯尼歌拒绝敬拜金像,被那第四个人从火窑中拯救出来。","tags":["fornalha","estátua de ouro","três jovens","adoração","livramento","quarto homem"]},
+    {"book":"daniel","type":"chapter","id":4,"slug":"capitulo-4","title":"但以理书 4 — 大树之梦与尼布甲尼撒的卑微","summary":"被砍倒的大树、王经历七期的疯狂,以及承认至高者掌权的结局。","tags":["árvore","nabucodonosor","sete tempos","soberania","humildade","loucura"]},
+    {"book":"daniel","type":"chapter","id":5,"slug":"capitulo-5","title":"但以理书 5 — 墙上的字与巴比伦的倾覆","summary":"伯沙撒的筵席、弥尼、弥尼、提客勒、乌法珥新等字句,以及巴比伦那夜的倾覆。","tags":["belsazar","escrita na parede","mene tequel","queda da babilônia","medos e persas","banquete"]},
+    {"book":"daniel","type":"chapter","id":6,"slug":"capitulo-6","title":"但以理书 6 — 但以理在狮子坑中","summary":"大流士的禁令、但以理忠心的祷告,以及在狮子坑中的拯救。","tags":["cova dos leões","dario","oração","decreto","livramento","fidelidade"]},
+    {"book":"daniel","type":"chapter","id":7,"slug":"capitulo-7","title":"但以理书 7 — 四兽与人子","summary":"从海中上来的四兽、那小角、亘古常在者的审判,以及人子的国度。","tags":["quatro bestas","chifre pequeno","filho do homem","ancião de dias","juízo","reinos"]},
+    {"book":"daniel","type":"chapter","id":8,"slug":"capitulo-8","title":"但以理书 8 — 公绵羊、公山羊与二千三百日","summary":"公绵羊与公山羊的异象、小角,以及直到圣所得洁净的二千三百日。","tags":["carneiro","bode","chifre pequeno","2300 tardes e manhãs","santuário","médo-persa e grécia"]},
+    {"book":"daniel","type":"chapter","id":9,"slug":"capitulo-9","title":"但以理书 9 — 但以理的祷告与七十个七","summary":"但以理认罪的祷告,以及关乎弥赛亚降临的七十个七的预言。","tags":["setenta semanas","oração","messias","profecia","jerusalém","ungido"]},
+    {"book":"daniel","type":"chapter","id":10,"slug":"capitulo-10","title":"但以理书 10 — 底格里斯河边的异象","summary":"身穿细麻衣的人、属灵的争战,以及大君米迦勒,临到希底结大河边。","tags":["rio tigre","homem de linho","miguel","conflito","visão","príncipe"]},
+    {"book":"daniel","type":"chapter","id":11,"slug":"capitulo-11","title":"但以理书 11 — 北方王与南方王","summary":"北方王与南方王之间冲突的长篇预言,以及一个骄傲权势的兴起。","tags":["rei do norte","rei do sul","guerras","profecia","persa e grécia","rei vil"]},
+    {"book":"daniel","type":"chapter","id":12,"slug":"capitulo-12","title":"但以理书 12 — 末时与复活","summary":"米迦勒站起来,书卷被封闭,睡在尘埃中之人的复活,以及一千二百九十日和一千三百三十五日。","tags":["tempo do fim","ressurreição","miguel","livro selado","1290 e 1335 dias","sabedoria"]}
+  ];
+})();
