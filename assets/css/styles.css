@@ -83,7 +83,7 @@ a:hover { color: var(--gold-bright); }
 .nav-toggle { display: none; background: none; border: 1px solid var(--line); color: var(--gold); font-size: 1.3rem; border-radius: 6px; padding: 2px 10px; cursor: pointer; }
 
 /* Seletor de idiomas (bandeiras) */
-.lang-switch { display: flex; align-items: center; gap: 2px; margin-left: 12px; }
+.lang-switch { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 2px; margin-left: 12px; }
 .lang-btn { background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer; padding: 3px 5px; line-height: 1; font-size: 1.1rem; filter: grayscale(.5) opacity(.7); transition: filter .15s ease, background .15s ease, border-color .15s ease; }
 .lang-btn:hover { filter: none; background: rgba(200, 162, 74, .1); }
 .lang-btn.is-active { filter: none; border-color: var(--gold); background: rgba(200, 162, 74, .14); }
@@ -309,10 +309,12 @@ table.compare td.trad { font-family: var(--display); color: var(--ink); white-sp
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 760px) {
-  .nav-toggle { display: block; margin-left: 8px; }
-  .lang-switch { margin-left: auto; }
-  .site-nav { display: none; flex-direction: column; width: 100%; margin-top: 10px; order: 5; }
-  .site-nav.is-open { display: flex; }
   .header-inner { flex-wrap: wrap; }
+  .brand { order: 1; }
+  .nav-toggle { display: block; margin-left: auto; order: 2; }
+  .lang-switch { order: 3; width: 100%; margin: 12px 0 2px; justify-content: center; gap: 4px; }
+  .lang-btn { font-size: 1.3rem; padding: 6px 8px; }
+  .site-nav { display: none; flex-direction: column; width: 100%; margin-top: 10px; order: 4; }
+  .site-nav.is-open { display: flex; }
   body { font-size: 17px; }
 }
