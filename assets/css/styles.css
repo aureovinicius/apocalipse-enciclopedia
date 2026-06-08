@@ -107,8 +107,8 @@ h3 { font-size: 1.3rem; }
 /* ---------- Hero / Home ---------- */
 .hero { text-align: center; padding: 70px 0 30px; position: relative; }
 .hero .title-xl {
-  font-family: var(--display); font-weight: 800;
-  font-size: clamp(3rem, 11vw, 7rem); letter-spacing: .02em; margin: 6px 0 4px;
+  font-family: var(--display); font-weight: 800; font-variant: small-caps;
+  font-size: clamp(3rem, 11vw, 7rem); letter-spacing: .06em; margin: 6px 0 4px;
   background: linear-gradient(180deg, var(--gold-bright), var(--gold) 55%, #9c7d33);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
