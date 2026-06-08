@@ -1,6 +1,6 @@
 /* Αποκάλυψη 7 — ελληνική μετάφραση. Εδάφια: Βάμβας. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'el',
+  book: 'apocalipse', lang: 'el', srcHash: '2adbe4377e7a',
   id: 7,
   slug: 'capitulo-7',
   title: 'Αποκάλυψη 7 — Οι 144 χιλιάδες και το μέγα πλήθος',

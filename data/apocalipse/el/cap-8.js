@@ -1,6 +1,6 @@
 /* Αποκάλυψη 8 — ελληνική μετάφραση. Εδάφια: Βάμβας. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'el',
+  book: 'apocalipse', lang: 'el', srcHash: 'd831fea73ef5',
   id: 8,
   slug: 'capitulo-8',
   title: 'Αποκάλυψη 8 — Η έβδομη σφραγίδα και οι πρώτες σάλπιγγες',

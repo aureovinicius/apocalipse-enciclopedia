@@ -1,6 +1,6 @@
 /* Αποκάλυψη 5 — ελληνική μετάφραση. Εδάφια: Βάμβας. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'el',
+  book: 'apocalipse', lang: 'el', srcHash: '3db2d382febe',
   id: 5,
   slug: 'capitulo-5',
   title: 'Αποκάλυψη 5 — Το Αρνίον και το σφραγισμένο βιβλίο',

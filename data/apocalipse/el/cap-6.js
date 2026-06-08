@@ -1,6 +1,6 @@
 /* Αποκάλυψη 6 — ελληνική μετάφραση. Εδάφια: Βάμβας. */
 window.APOC.register('chapter', {
-  book: 'apocalipse', lang: 'el',
+  book: 'apocalipse', lang: 'el', srcHash: '41b1a41fc6f5',
   id: 6,
   slug: 'capitulo-6',
   title: 'Αποκάλυψη 6 — Το άνοιγμα των έξι πρώτων σφραγίδων',
